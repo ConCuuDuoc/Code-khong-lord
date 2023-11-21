@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-poppins: Poppins;
+  --font-open-sans: "Open Sans";
+  --font-koho: KoHo;
+  --font-noto-sans: "Noto Sans";
+
+  /* font sizes */
+  --font-size-mini: 15px;
+  --font-size-31xl: 50px;
+  --font-size-xl: 20px;
+  --font-size-base: 16px;
+  --font-size-21xl: 40px;
+  --font-size-9xl: 28px;
+
+  /* Colors */
+  --color-lightgray: #d0cece;
+  --color-mediumseagreen: #21b573;
+  --color-darkslategray-100: #21354b;
+  --color-darkslategray-200: #20344a;
+  --color-white: #fff;
+
+  /* Gaps */
+  --gap-xs: 12px;
+  --gap-3xs: 10px;
+
+  /* Paddings */
+  --padding-sm: 14px;
+  --padding-3xs: 10px;
+
+  /* Border radiuses */
+  --br-3xs-6: 9.6px;
+  --br-xs: 12px;
+  --br-11xl: 30px;
+}
+
+.custom-title {
+  background-color: #fff; /* Nền trắng */
+  color: #000; /* Chữ đen */
+  padding: 15px; /* Tùy chỉnh padding tùy theo ý muốn */
+  border-bottom: 1px solid #ccc; /* Đường viền phía dưới tiêu đề (tuỳ chọn) */
+}
+
+/* Đặt vị trí tiêu đề trên cùng (nếu muốn) */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .dashboard-course-cart-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+    background-color: var(--color-darkslategray-100);
+    width: 270px;
+    height: 1365px;
+  }
+ 
+  
+  .group-container {
+    position: absolute;
+    width: 74.09%;
+    top: calc(50% - 19px);
+    right: 0;
+    left: 25.91%;
+    height: 37px;
+  }
+  .group-item,
+  .group-parent {
+    position: absolute;
+    height: 60px;
+  }
+  .group-item {
+    top: 0;
+    left: 0;
+    width: 59.59px;
+    object-fit: cover;
+  }
+  .group-parent {
+    width: 40.46%;
+    top: calc(50% + 8px);
+    right: 55.4%;
+    left: 4.14%;
+  }
+  .how-to-pass {
+    margin: 0;
+  }
+  .title {
+    position: absolute;
+    width: 42.48%;
+    top: calc(50% - 153px);
+    left: 4.14%;
+    font-size: 30px;
+    letter-spacing: 0.3px;
+    line-height: 40px;
+    font-weight: 600;
+    display: inline-block;
+  }
+  .group-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 7px;
+    width: 45.68px;
+    height: 20px;
+    opacity: 0.5;
+  }
+  .min {
+    position: absolute;
+    top: 5px;
+    left: 3.97px;
+    letter-spacing: 0.5px;
+    line-height: 10px;
+    font-weight: 500;
+    display: inline-block;
+    width: 37.74px;
+  }
+  .vector-parent {
+    position: absolute;
+    top: 41px;
+    left: 649.49px;
+    width: 45.68px;
+    height: 20px;
+    font-size: 10px;
+  }
+  .rectangle-parent {
+    position: absolute;
+    top: 172px;
+    left: 0;
+    width: 720px;
+    height: 366px;
+    font-size: var(--font-size-mini);
+  }
+  .resources {
+    width: 22.84%;
+    top: calc(50% - 271px);
+    left: 0.97%;
+  }
+  .resources,
+  .resources2,
+  .resources4 {
+    position: absolute;
+    line-height: 28px;
+    font-weight: 500;
+    display: inline-block;
+  }
+  .resources2 {
+    width: 22.84%;
+    top: calc(50% - 186px);
+    left: 1.04%;
+    font-size: var(--font-size-9xl);
+  }
+  .resources4 {
+    width: 7.14%;
+    top: calc(50% - 176px);
+    left: 81.55%;
+    font-size: 36px;
+  }
+  .div {
+    position: absolute;
+    top: 247px;
+    left: 1089px;
+    font-size: var(--font-size-31xl);
+  }
+  .check-out {
+    position: relative;
+    font-weight: 600;
+    background-color: var(--color-mediumseagreen);
+    width: 200px;
+    border-radius: 30px;
+    font-size: 24px;
+    color: #fff;
+  }
+.pay {
+    position: absolute;
+    top: 478px;
+    left: 944px;
+    border-radius: var(--br-xs);   
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-sm) var(--padding-3xs);
+    box-sizing: border-box;
+    font-size: 24px;
+  }
+  .resources5,
+  .shopping-cart {
+    position: absolute;
+    font-size: var(--font-size-21xl);
+  }
+  .shopping-cart {
+    top: 176px;
+    left: 372px;
+    width: 1344px;
+    height: 542px;
+  }
+
+  .dashboard-course-cart {
+    position: relative;
+    background-color: #0e1620;
+    width: 100%;
+    height: 1365px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-xl);
+    color: var(--color-white);
+    font-family: var(--font-poppins);
+  }
+  

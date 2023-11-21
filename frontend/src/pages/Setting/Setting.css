@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-poppins: Poppins;
+  --font-proxima-nova: "Proxima Nova";
+  --font-open-sans: "Open Sans";
+  --font-koho: KoHo;
+
+  /* font sizes */
+  --font-size-xl: 20px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-mini: 15px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-royalblue: #0069ff;
+  --color-indianred: #c84545;
+  --color-lightgray: #d0cece;
+  --color-darkgray: #b2b2b2;
+  --color-mediumseagreen: #21b573;
+  --color-darkslategray: #21354b;
+
+  /* Gaps */
+  --gap-5xs: 8px;
+  --gap-33xl-9: 52.9px;
+
+  /* Paddings */
+  --padding-2xs: 11px;
+  --padding-xs: 12px;
+  --padding-mid: 17px;
+  --padding-smi: 13px;
+  --padding-7xs: 6px;
+
+  /* Border radiuses */
+  --br-21xl: 40px;
+  --br-5xs: 8px;
+  --br-3xs-6: 9.6px;
+  --br-11xl: 30px;
+}
+
+.dashboard-profile-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  font-family: 'Poppins', sans-serif; 
+  background-color: #0E1620;
+}
+.dashboard-profile-settings-child {
+  border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+  height: 1365px;
+}
+.dashboard-profile-settings form {
+  width: 400px; 
+}
+
+.dashboard-profile-settings label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.dashboard-profile-settings input,
+.dashboard-profile-settings select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.dashboard-profile-settings button:last-child {
+  margin-right: 0;
+}
+.change-setting {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.dashboard-profile-settings button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif; 
+}
+
+.dashboard-profile-settings button {
+  background-color: #007bff;
+  border-radius: 30px; 
+}
+
+.dashboard-profile-settings label {
+  color: white;
+}
+
+.change-settings-wrapper {
+  position: relative;
+}
+
+.change-settings-title {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: -120px;
+  text-align: center;
+}
+
+.change-settings-password{
+  font-size: 15px;
+  color: white;
+  position: absolute;
+  top: 550px;
+}
+
+.form-group{
+  margin-bottom: 20px;
+}

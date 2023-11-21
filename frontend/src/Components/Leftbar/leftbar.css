@@ -1,0 +1,246 @@
+box {
+    height: 1365px;
+    width: 272px;
+  }
+
+  .box .left-bar {
+    height: 1365px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 274px;
+  }
+
+  .box .overlap-group {
+    height: 1365px;
+    position: relative;
+    width: 272px;
+  }
+
+  .box .rectangle {
+    background-color: #21354b;
+    border-radius: 0px 30px 30px 0px;
+    height: 1365px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 270px;
+  }
+
+  .box .profile {
+    background-color: #21354b;
+    height: 61px;
+    left: 2px;
+    position: absolute;
+    top: 257px;
+    width: 270px;
+  }
+
+  .box .div {
+    background-color: #21b573;
+    height: 61px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 6px;
+  }
+
+  .box .group {
+    height: 38px;
+    left: 50px;
+    position: absolute;
+    top: 14px;
+    width: 128px;
+  }
+
+  .box .text-wrapper {
+    color: #21b573;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 8px;
+    width: 87px;
+  }
+
+  .box .iconly-bold-home {
+    height: 35px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 33px;
+  }
+
+  .box .my-learning {
+    height: 33px;
+    left: 49px;
+    position: absolute;
+    top: 384px;
+    width: 192px;
+  }
+
+  .box .div-wrapper {
+    height: 30px;
+    left: 43px;
+    position: absolute;
+    top: 3px;
+    width: 151px;
+  }
+
+  .box .text-wrapper-2 {
+    color: #d0cece;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 149px;
+  }
+
+  .box .iconly-light-outline {
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 39px;
+  }
+
+  .box .categories {
+    height: 37px;
+    left: 52px;
+    position: absolute;
+    top: 494px;
+    width: 163px;
+  }
+
+  .box .text-wrapper-3 {
+    color: #d0cece;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 4px;
+    width: 120px;
+  }
+
+  .box .img {
+    height: 37px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 33px;
+  }
+
+  .box .course-cart {
+    height: 36px;
+    left: 52px;
+    position: absolute;
+    top: 604px;
+    width: 195px;
+  }
+
+  .box .text-wrapper-4 {
+    color: #d0cece;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 6px;
+    width: 153px;
+  }
+
+  .box .group-2 {
+    height: 36px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 36px;
+  }
+
+  .box .settings {
+    height: 34px;
+    left: 57px;
+    position: absolute;
+    top: 723px;
+    width: 128px;
+  }
+
+  .box .text-wrapper-5 {
+    color: #d0cece;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 4px;
+    width: 85px;
+  }
+
+  .box .iconly-light-outline-2 {
+    height: 34px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+
+  .box .sign-out {
+    height: 33px;
+    left: 52px;
+    position: absolute;
+    top: 1267px;
+    width: 130px;
+  }
+
+  .box .text-wrapper-6 {
+    color: #e86e6e;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 41px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3px;
+    width: 87px;
+  }
+
+  .box .iconly-light-outline-3 {
+    height: 31px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+  }
+
+  .box .codelord-logo {
+    color: transparent;
+    font-family: "KoHo-Bold", Helvetica;
+    font-size: 50px;
+    font-weight: 700;
+    left: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    position: absolute;
+    top: 52px;
+    white-space: nowrap;
+    width: 217px;
+  }
+
+  .box .span {
+    color: #d8ebff;
+  }

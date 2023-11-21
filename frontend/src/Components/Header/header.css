@@ -1,0 +1,150 @@
+.box {
+    height: 54px;
+    position: relative;
+    width: 1488px;
+}
+
+.box .header {
+    background-color: transparent;
+    height: 54px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 1488px;
+}
+
+.box .search {
+    background-color: #0c0c0c;
+    border-radius: 50px;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    top: 4px;
+    width: 438px;
+}
+
+.box .group {
+    height: 33px;
+    left: 18px;
+    position: relative;
+    top: 9px;
+    width: 333px;
+}
+
+.box .search-courses {
+    background: transparent;
+    border: none;
+    color: #d0cece;
+    font-family: "Open Sans", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 53px;
+    letter-spacing: 0;
+    line-height: normal;
+    padding: 0;
+    position: absolute;
+    top: 6px;
+}
+
+.box .iconly-light-outline {
+    height: 33px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+}
+
+.box .user {
+    height: 50px;
+    left: 1166px;
+    position: absolute;
+    top: 0;
+    width: 322px;
+}
+
+.box .profile {
+    background-color: #141414;
+    border-radius: 10px;
+    height: 50px;
+    left: 60px;
+    position: absolute;
+    top: 0;
+    width: 262px;
+}
+
+.box .div {
+    height: 40px;
+    left: 13px;
+    position: absolute;
+    top: 5px;
+    width: 129px;
+}
+
+.box .overlap-group {
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 47px;
+}
+
+.box .allura-avatar {
+    background-color: #1984ff;
+    border-radius: 9.59px;
+    height: 40px;
+    left: 3px;
+    position: absolute;
+    top: 0;
+    width: 42px;
+}
+
+.box .text-wrapper {
+    color: #d0cece;
+    font-family: "Poppins", Helvetica;
+    font-size: 15px;
+    font-weight: 600;
+    left: 60px;
+    letter-spacing: -0.45px;
+    line-height: normal;
+    position: absolute;
+    top: 8px;
+}
+
+.box .icon-chevron-left {
+    height: 12px;
+    left: 238px;
+    position: absolute;
+    top: 21px;
+    width: 12px;
+}
+
+.box .notification {
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 7px;
+    width: 32px;
+}
+
+.box .overlap {
+    height: 40px;
+    position: relative;
+}
+
+.box .img {
+    height: 37px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 32px;
+}
+
+.box .ellipse {
+    background-color: #ee0000;
+    border-radius: 4.5px;
+    height: 9px;
+    left: 18px;
+    position: absolute;
+    top: 0;
+    width: 9px;
+}
