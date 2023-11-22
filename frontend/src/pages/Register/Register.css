@@ -18,7 +18,7 @@
     top: 0;
 }
 
-.auth .name  {
+.auth .username  {
     top: 20px;
     align-items: center;
     border-color: #0e0d0d;
@@ -30,11 +30,11 @@
     width: 400px;
 }
 
-.name .form-control {
+.username .form-control {
     background-color: transparent;
     color: #ffffff;
 }
-.name ::placeholder {
+.userusername ::placeholder {
     color: #ffffff
 }
 

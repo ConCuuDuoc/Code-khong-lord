@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from jwt.algorithms import RSAAlgorithm
+from botocore.exceptions import ClientError
 
 
 # import os
@@ -44,9 +45,24 @@ class RegisterView(APIView):
             # Handle other exceptions (e.g., network errors)
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
+        # Check exist email first
+        # Get data from request
+        email = request.data.get('email')
 
+        try:
+            # Check if the email already exists in the user pool
+            response = client.list_users(
+                UserPoolId=user_pool_id,
+                Filter=f'email = "{email}"',
+        )
+            if response.get('Users'):
+                return Response({"error": "An account with the given email already exists."}, status=status.HTTP_400_BAD_REQUEST)
+        except ClientError as e:
+            # Handle possible exceptions from the list_users call
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
         # Initialize Cognito client
-    
+
         # Get data from request
         username = request.data.get('username')
         password = request.data.get('password')
@@ -68,12 +84,10 @@ class RegisterView(APIView):
                 UserAttributes=attributes
             )
             return Response(response, status=status.HTTP_201_CREATED)
-        except client.exceptions.UsernameExistsException as e:
-            # Handle exception
-            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        
         except client.exceptions.UsernameExistsException:
+
             return Response({"error": "This username already exists."}, status=status.HTTP_400_BAD_REQUEST)
+        
         except Exception as e:
             # Handle any other exception
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -88,7 +102,7 @@ class ConfirmRegistrationView(APIView):
 
         #Confirmation steps
         username = request.data.get('username')
-        confirmation_code = request.data.get('confirmation_code')
+        # confirmation_code = request.data.get('confirmation_code')
 
         #FOR THE REAL CONFIRMATION CODE
         """client = settings.COGNITO_CLIENT

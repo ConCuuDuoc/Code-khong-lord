@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import "./Dashboard.css";
-import LeftBar from "../../Components/Leftbar/leftbar"; 
-import Header from "../../Components/Header/header"; 
+import LeftBar from "../../Components/LeftBar/Leftbar"; 
+import Header from "../../Components/Header/Header"; 
 import rectangle from "./images/rectangle-5.svg";
 import Group29 from "./images/Group 29.svg"
 import Group1 from "./images/Group1.svg"

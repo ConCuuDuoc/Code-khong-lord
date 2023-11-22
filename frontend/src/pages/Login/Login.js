@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import { Image } from "react-bootstrap";
@@ -13,25 +14,25 @@ import line1 from "./images/line-1.svg";
 
 const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: '' 
     });
     
-    const {email, password} = formData;
+    const {username, password} = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
 
-        login(email, password);
+        login(username, password);
     };
 
     //If the user authenticated
     //Redirect to the home page
 
     if (isAuthenticated) {
-        return <Navigate to="/dashboard" />
+        return <Navigate to="/" />
     }
 
     return (
@@ -46,6 +47,7 @@ const Login = ({ login, isAuthenticated }) => {
                         </p>
                     </div>
                 </div>
+
             <div className="ellipse" />
                 <div className="overlap-group">
                     <div className="ellipse-2" />
@@ -59,8 +61,8 @@ const Login = ({ login, isAuthenticated }) => {
                                         </div>
                                     <div className="credentials">
                                         <form onSubmit={e=>onSubmit(e)}>
-                                            <div className="form-group email">
-                                                <input type="email" className="form-control" placeholder="Email" name="email" value={email} onChange={e=>onChange(e)} required/>
+                                            <div className="form-group username">
+                                                <input type="username" className="form-control" placeholder="username" name="username" value={username} onChange={e=>onChange(e)} required/>
                                             </div>
                                             <div className="form-group passwd">
                                                 <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={e=>onChange(e)} minlength="6" required/>

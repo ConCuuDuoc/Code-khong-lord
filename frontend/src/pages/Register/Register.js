@@ -4,16 +4,18 @@ import {connect} from "react-redux";
 import { Image } from "react-bootstrap";
 
 import { signup } from "../../actions/auth";
-
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import facebook from "../../pages/Login/images/facebook.svg";
 import google from "../../pages/Login/images/google.svg";
 import github from "../../pages/Login/images/github.svg";
 import line1 from "../../pages/Login/images/line-1.svg";
 import "./Register.css"
-
+require('dotenv').config();
 
 const Register = ({ signup, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -28,21 +30,44 @@ const Register = ({ signup, isAuthenticated }) => {
     const onSubmit = e => {
         e.preventDefault();
         if (password === re_password) {
-            signup(name, email, password, re_password);
-            setAccountCreated(true);
+            try {
+            const val = signup(name, email, password, re_password);
+            setAccountCreated(val);
+            }
+            catch {
+            setAccountCreated(false);
+            }
         }    
     };
-
-
-
-    if (isAuthenticated) {
-        return <Navigate to="/" />
-    }
-
+    
+    const continuewithGoogle = async() => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_API_URL}/dashboard`)
+            window.location.replace(res.data.authorization_url);
+        } catch (err) {
+            console.error('Error during Google OAuth request:', err);
+        }
+    };
+    const continuewithFacebook = async() => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/o/facebook/?redirect_uri=${process.env.REACT_APP_API_URL}/dashboard`);
+     
+            window.location.replace(res.data.authorization_url);
+        } catch (err) {
+            console.error('Error during Google OAuth request:', err);
+        }
+    };
     if (accountCreated){
-        return <Navigate to="/login" />
+        return navigate('/confirm', { state: {username:name} });
     }
 
+
+
+    // if (isAuthenticated) {
+    //     return <Navigate to="/" />
+    // }
+
+    
     return (
         <div className="auth">
             <div className="div">
@@ -94,8 +119,8 @@ const Register = ({ signup, isAuthenticated }) => {
                                     <Image className="line" alt="Line" src={line1} />
                                 </div>
                                 <div className="social">
-                                    <Image className="frame-4" alt="google" src={google} />
-                                    <Image className="frame-4" alt="facebook" src={facebook} />
+                                    <Image className="frame-4" alt="google" src={google} onClick={continuewithGoogle}/>
+                                    <Image className="frame-4" alt="facebook" src={facebook} onClick={continuewithFacebook} />
                                     <Image className="frame-4" alt="github" src={github} />
                                 </div>
                             

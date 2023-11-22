@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CourseCart.css";
-import LeftBar from "../../Components/Leftbar/leftbar";
+import LeftBar from "../../Components/LeftBar/Leftbar";
 import QR from './images/qr.jpg';
 import Modal from 'react-bootstrap/Modal';
 

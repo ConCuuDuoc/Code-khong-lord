@@ -1,0 +1,99 @@
+.course-item {
+    position: relative;
+    width: 509px;
+    height: 462px;
+    margin: 30px;
+    border-radius: 30px;
+    background-color: #20344a;
+    color: #fff; 
+  }
+  
+  .course-title {
+    font-family: KoHo;
+    font-size: 30px;
+    font-weight: bold;
+    height: 30px;
+    text-align: left;
+    position: absolute;
+    height: 15.25%;
+    width: 85%;
+    top: 25.36%;
+    left: 6.68%;
+    line-height: 40px;
+    display: inline-block;
+    font-family: var(--font-koho);
+  }
+  
+  .course-button{
+      position: absolute;
+      height: 12.99%;
+      width: 20%; 
+      top: 76.19%;
+      right: 63.3%;
+      bottom: 10.82%;
+      left: 6.68%;
+      border-radius: var(--br-28xl);
+      background-color: var(--color-mediumseagreen-100);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-3xl);
+      color: var(--color-white);
+    }
+  
+    .course-lessons{
+      position: absolute;
+      height: 3.39%;
+      width: 20.77%;
+      top: 12.22%;
+      left: 6.68%;
+      line-height: 18px;
+      font-weight: 500;
+      display: inline-block;
+    }
+  
+    .course-category {
+      position: absolute;
+      height: 3.25%;
+      width: 100px;
+      top: 11.69%;
+      left: 71.12%;
+      line-height: 18px;
+      font-weight: 400;
+      color: var(--color-white);
+      display: inline-block;
+    }
+  
+  
+    .course-skills{
+      position: absolute;
+      top: 225px;
+      left: 6.68%;
+      font-size: var(--font-size-lg);
+      color: var(--color-lightsteelblue);
+      display: inline-block;
+      width: 100%;
+      font-family: var(--font-poppins);
+    }
+  
+    .course-source{
+      position: absolute;
+      top: 347px;
+      left: 80%;
+      border-radius: var(--br-21xl);
+      width: 69px;
+      height: 69px;
+      object-fit: cover;
+    }
+
+    .line{
+      position: absolute;
+      top: 320.5px;
+      left: 33.76px;
+      border-top: 1px solid var(--color-lavender-300);
+      box-sizing: border-box;
+      width: 434.61px;
+      height: 1px;
+    }

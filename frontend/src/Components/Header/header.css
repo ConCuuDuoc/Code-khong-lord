@@ -1,150 +1,157 @@
-.box {
-    height: 54px;
-    position: relative;
-    width: 1488px;
-}
-
-.box .header {
+ .search-bar {
+    color: #D0CECE;
+    font-family: 'KoHo', sans-serif;
+    border-radius: 50px;
+    height: 50px;
+    left: 185px;
+    position: absolute;
+    top: 0px;
+    width: 438px;
+  }
+  
+  .search-bar input{
+    height: 50px;
+    left: 185px;
+    position: absolute;
+    top: 30px;
+    background-color: #0D0D0D;
+    width: 866px;
+    border-radius: 50px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .box {
     background-color: transparent;
+    border-radius: 10px;
     height: 54px;
     left: 0;
     position: fixed;
     top: 0;
-    width: 1488px;
-}
-
-.box .search {
-    background-color: #0c0c0c;
-    border-radius: 50px;
-    height: 50px;
+    width: 1920px;
+    z-index: 100;
+  }
+  
+  .box .header {
+    background-color: transparent;
+    position: fixed;
+    height: 54px;
     left: 0;
-    position: absolute;
-    top: 4px;
-    width: 438px;
-}
-
-.box .group {
+    top: -10px;
+  }
+  
+  .box .group {
     height: 33px;
     left: 18px;
     position: relative;
     top: 9px;
     width: 333px;
-}
+  }
 
-.box .search-courses {
-    background: transparent;
-    border: none;
-    color: #d0cece;
-    font-family: "Open Sans", Helvetica;
-    font-size: 15px;
-    font-weight: 400;
-    left: 53px;
-    letter-spacing: 0;
-    line-height: normal;
-    padding: 0;
-    position: absolute;
-    top: 6px;
-}
 
-.box .iconly-light-outline {
-    height: 33px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 32px;
-}
-
-.box .user {
+  .box .user {
     height: 50px;
-    left: 1166px;
+    left: 1550px;
     position: absolute;
-    top: 0;
-    width: 322px;
-}
+    top: 30px;
+    width: 340px;
+  }
 
-.box .profile {
-    background-color: #141414;
-    border-radius: 10px;
-    height: 50px;
-    left: 60px;
+  .image-girl{
     position: absolute;
-    top: 0;
-    width: 262px;
-}
+    top: 7px;
+    left: 440px;
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+  }
 
-.box .div {
+  .box .div {
     height: 40px;
     left: 13px;
     position: absolute;
     top: 5px;
     width: 129px;
-}
-
-.box .overlap-group {
+  }
+  
+  .box .overlap-group {
     height: 40px;
     left: 0;
     position: absolute;
     top: 0;
     width: 47px;
-}
+  }
 
-.box .allura-avatar {
-    background-color: #1984ff;
-    border-radius: 9.59px;
-    height: 40px;
-    left: 3px;
-    position: absolute;
-    top: 0;
-    width: 42px;
-}
-
-.box .text-wrapper {
+  .box .text-wrapper {
     color: #d0cece;
     font-family: "Poppins", Helvetica;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     left: 60px;
     letter-spacing: -0.45px;
     line-height: normal;
     position: absolute;
-    top: 8px;
-}
-
-.box .icon-chevron-left {
-    height: 12px;
-    left: 238px;
-    position: absolute;
-    top: 21px;
-    width: 12px;
-}
-
-.box .notification {
+    top: 10px;
+  }
+  
+  .box .notification {
     height: 40px;
     left: 0;
     position: absolute;
-    top: 7px;
+    top: 10px;
     width: 32px;
-}
-
-.box .overlap {
+  }
+  
+  .box .overlap {
     height: 40px;
     position: relative;
-}
-
-.box .img {
+  }
+  
+  .box .img {
     height: 37px;
     left: 0;
     position: absolute;
-    top: 3px;
+    top: 0px;
     width: 32px;
-}
+  }
 
-.box .ellipse {
-    background-color: #ee0000;
-    border-radius: 4.5px;
-    height: 9px;
-    left: 18px;
+   .box .profile {
+    background-color: #141414;
+    border-radius: 10px;
+    height: 55px;
+    width: 180px;
+    left: 75px;
     position: absolute;
-    top: 0;
-    width: 9px;
-}
+    top: 0px;
+  }
+
+  .allura-avatar {
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 4px;
+    width: 47px;
+  }
+  
+  .allura-avatar-2 {
+    background-color: #1984ff;
+    border-radius: 9.59px;
+    height: 40px;
+    left: 3px;
+    position: absolute;
+    top: 4px;
+    width: 42px;
+  }
+
+  #dropdown-basic {
+    background-color: #141414;
+    position: fixed;
+    top: 30px;
+    right: 100px;
+    border-color: #141414;
+  }
+ 
+  
+   

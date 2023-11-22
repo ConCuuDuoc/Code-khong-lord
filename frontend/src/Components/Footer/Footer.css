@@ -1,0 +1,96 @@
+
+.footer-bs {
+  background-color: #20344A;
+  padding: 60px 40px;
+  color: rgba(255, 255, 255, 1.00);
+  margin-bottom: 0px;
+  border-top-left-radius: 0px;
+}
+
+.footer-bs .footer-ns input {
+  border-radius: 5px; 
+}
+
+.footer-bs .footer-ns .Send {
+  background-color: #21B573;
+  color: #fff;
+}
+
+.footer-bs .form-control{
+  width: 130px;
+}
+
+.footer-bs .footer-ns .Send:hover {
+  background-color: #166642; 
+}
+.footer-bs .footer-brand h2 {
+  margin: 0px 0px 10px;  
+}
+
+.footer-bs .footer-brand h2 .code-part{
+  color: #D9ECFF;
+  font-weight: bold;
+}
+
+.footer-bs .footer-brand h2 .lord-part{
+  color: #21B573;
+  font-weight: bold;
+}
+
+.footer-bs .footer-brand p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.footer-bs .footer-nav ul.pages {
+  list-style: none;
+  padding: 0px;
+}
+
+.footer-bs .footer-nav ul.pages li {
+  padding: 5px 0px;
+  margin-bottom: 10px;
+}
+
+.footer-bs .footer-nav ul.pages a {
+  color: rgba(255, 255, 255, 1.00);
+  font-weight: bold;
+  font-family: "Koho";
+}
+
+.footer-bs .footer-social ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.footer-bs .footer-social h4 {
+  font-size: 25px;
+  font-family: 'Koho', sans-serif; 
+  font-weight: bold;
+}
+
+.footer-bs .footer-social li {
+  padding: 5px 4px;
+  font-family: 'Koho', sans-serif;
+}
+
+.footer-bs .footer-social a {
+  color: #ffffff;
+}
+
+.footer-bs .footer-social a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-bs .footer-ns h4 {
+  font-size: 25px;
+  font-family: "Koho";
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-bs .footer-ns p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+}

@@ -1,3 +1,10 @@
+.background {
+  background-color: #0E1620;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
 .codelord {
     font-size: 29px;
     margin-left: 60px;
@@ -39,7 +46,7 @@
     width: 126px;
     height: 60px;
     border-radius: 50px;
-
+    padding-top: 12px;
 }
 
 .background-color {
@@ -76,8 +83,11 @@
 /*Search box css*/
 .search{
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top : -800px;
-    left: 510px;
+    left: 200px;
     color: #3D4E64;
 }
 
@@ -90,7 +100,6 @@
     font-size: 27px;
     font-weight: bold;
 }
-
 
 .search input:focus{
     box-shadow: none;
@@ -105,7 +114,7 @@
 .search button{
     position: absolute;
     top: 11px;
-    right: 410px;
+    right: 20px;
     height: 76px;
     width: 152px;
     background: #FAB437;
@@ -117,24 +126,26 @@
 /*images home*/
 .left-img {
     margin-top: -1070px;
-    margin-left: 20px;
+    margin-left: -150px;
     z-index: 0;
 }
 
 .background-img1 {
     z-index: -1;
     margin-top: -700px;
+    margin-left: -150px;
 }
 
 .right-img {
     margin-top: -900px;
-    margin-left: 77%;
+    margin-left: 89%;
     z-index: 0;
 }
 
 .background-img2 {
     z-index: -1;
     margin-top: -700px;
+    margin-left: -400px;
 }
 
 .background-img3 {
@@ -172,14 +183,7 @@
     width: 290px;
 }
 
-.box .rectangle {
-    background-color: #354b66;
-    height: 169px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 314px;
-}
+
 
 .box .text-wrapper {
     color: #ffffff;
@@ -446,7 +450,7 @@
 
 .instruction {
     text-align: center;
-    margin-left: -100px;
+    margin: auto;
     color: #ffffff;
 }
 
@@ -541,13 +545,15 @@
     font-family: "Inter", Helvetica;
     font-size: 16px;
     font-weight: 500;
-    left: 12px;
+    left: 10px;
     letter-spacing: 0;
     line-height: 18px;
     position: absolute;
     top: 5px;
     white-space: nowrap;
     width: 124px;
+    text-align: center;
+    padding: 2px;
   }
   
   .cybersec .rectangle {
@@ -715,13 +721,15 @@
     font-family: "Inter", Helvetica;
     font-size: 16px;
     font-weight: 500;
-    left: 12px;
+    left: 10px;
     letter-spacing: 0;
     line-height: 18px;
     position: absolute;
     top: 5px;
     white-space: nowrap;
     width: 124px;
+    text-align: center;
+    padding: 2px;
   }
   
   .datascience .rectangle {
@@ -889,13 +897,15 @@
     font-family: "Inter", Helvetica;
     font-size: 16px;
     font-weight: 500;
-    left: 12px;
+    left: 10px;
     letter-spacing: 0;
     line-height: 18px;
     position: absolute;
     top: 5px;
     white-space: nowrap;
     width: 124px;
+    text-align: center;
+    padding: 2px;
   }
   
   .aiml .rectangle {
@@ -1030,9 +1040,8 @@ margin-left: 38%;
 .how .background2 {
     width: 1920px;
     margin-left: -25%;
-    background-color: #000000
+    background-color: #000000;
 }
-
 
 .boxsignup {
     height: 280px;
@@ -1141,4 +1150,93 @@ margin-left: 38%;
   }
 
 
-  
+/* FAQ */
+.FAQ {
+  width: 1920px;
+  background-color: #0E1620;
+  height: 800px;
+}
+
+.questions {
+  background-color: #0E1620;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: -200px;
+}
+
+.accordion:last-child .ques{
+  background-color: #0E1620;
+  color: #e1efff;
+  font-size: 20px;
+}
+
+.accordion .accordion-header button {
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #0E1620;
+  box-shadow: none;
+  color: #e1efff;
+  vertical-align: middle;
+  position: relative;
+}
+
+.accordion .accordion-header button:hover {
+  background-color: #0E1620;
+  color: #fdfa72;
+}
+
+.accordion .accordion-header button:after {
+  transition: all .6s ease;
+}
+
+.accordion .item .accordion-collapse {
+  transition: all .4s ease;
+}
+
+.find-here {
+  margin-top: 200px;
+  margin-left: -200px;
+  color: white;
+}
+
+.F-title {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.F-find {
+  font-size: 70px;
+  font-weight: bold;
+  padding-bottom: 100px;
+}
+
+.button-message {
+  background-color: #FAB437;
+  display: inline-block; 
+  border: none; 
+  width: 222px;
+  height: 60px;
+  border-radius: 50px;
+  padding-top: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 550;
+  font-size: 22px;
+}
+
+.button-message:hover {
+  scale: 1.1;
+  color: white;
+  background-color: #FAB437;
+  transition: 0.5s;
+}
+
+.woman-FAQ {
+  position: relative;
+  width: 35%;
+  margin-left: 50%;
+  margin-top: -23%;
+}
+
+.footer{
+  background-color: #20344A;
+}
