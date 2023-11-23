@@ -1,37 +1,51 @@
 import json
 import requests
 import jwt
-import time
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from jwt.algorithms import RSAAlgorithm
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+import os
+import boto3
 
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+# Load env variables
+load_dotenv(dotenv_path)
 
-# import os
 
 class RegisterView(APIView):
     def post(self, request):
         
-        #COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
-        #user_pool_id = settings.COGNITO_USER_POOL_ID
-
-        user_pool_id = "local_33DvJMdE"
+        user_pool_id = os.environ.get("USER_POOL_ID")
 
         # Create Client ID first
         client_name = request.data.get('username')
 
 
         # Initialize the boto3 Cognito IDP client
-        client = settings.COGNITO_CLIENT
-
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
+)
         try:
             # Create the user pool client
             response = client.create_user_pool_client(
                 UserPoolId=user_pool_id,
-                ClientName=client_name
+                ClientName=client_name,
+                ExplicitAuthFlows=['ALLOW_REFRESH_TOKEN_AUTH','ALLOW_USER_PASSWORD_AUTH','ALLOW_CUSTOM_AUTH','ALLOW_USER_SRP_AUTH'],
+                RefreshTokenValidity=12,
+                IdTokenValidity=60,
+                AccessTokenValidity=60,
+                TokenValidityUnits={
+            'AccessToken': 'minutes',  # or 'minutes', 'days'
+            'IdToken': 'minutes',      # or 'minutes', 'days'
+            'RefreshToken': 'hours',  # or 'minutes', 'hours'
+            }
             )
 
             # Extract the App Client ID from the response
@@ -74,7 +88,12 @@ class RegisterView(APIView):
             },
             # Add other attributes here
         ]
-
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")
+        )
         try:
             # Call Cognito to create the user
             response = client.sign_up(
@@ -98,14 +117,19 @@ class ConfirmRegistrationView(APIView):
         #COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
         #user_pool_id = settings.COGNITO_USER_POOL_ID
 
-        user_pool_id = "local_33DvJMdE"
+        user_pool_id = os.environ.get("USER_POOL_ID")
 
         #Confirmation steps
         username = request.data.get('username')
-        # confirmation_code = request.data.get('confirmation_code')
+        confirmation_code = request.data.get('confirmation_code')
 
         #FOR THE REAL CONFIRMATION CODE
-        """client = settings.COGNITO_CLIENT
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
+)
         try:
             # List the user pool clients
             response = client.list_user_pool_clients(
@@ -139,7 +163,12 @@ class ConfirmRegistrationView(APIView):
         if not username or not confirmation_code:
             return Response({"error": "Username and confirmation code are required."}, status=status.HTTP_400_BAD_REQUEST)
         
-        client = settings.COGNITO_CLIENT
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
+)
         
         try:
             response = client.confirm_sign_up(
@@ -147,13 +176,13 @@ class ConfirmRegistrationView(APIView):
                 Username=username,
                 ConfirmationCode=confirmation_code
             )
-        """
-        #FAKE TIME
-        client = settings.COGNITO_CLIENT
-        try:
-            response = client.admin_confirm_sign_up(
-                UserPoolId=user_pool_id,
-                Username=username)
+        
+        # #FAKE TIME
+        # client = settings.COGNITO_CLIENT
+        # try:
+        #     response = client.admin_confirm_sign_up(
+        #         UserPoolId=user_pool_id,
+        #         Username=username)
             return Response({"message": "User confirmed successfully."}, status=status.HTTP_200_OK)
         except client.exceptions.UserNotFoundException:
             return Response({"error": "User does not exist."}, status=status.HTTP_404_NOT_FOUND)
@@ -169,10 +198,15 @@ class LoginView(APIView):
         #COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
         #user_pool_id = settings.COGNITO_USER_POOL_ID
 
-        user_pool_id = "local_33DvJMdE"
+        user_pool_id = os.environ.get("USER_POOL_ID")
 
         # Initialize Cognito client
-        client = settings.COGNITO_CLIENT
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
+)
         # Get data from request
         username = request.data.get('username')
         password = request.data.get('password')
@@ -206,7 +240,12 @@ class LoginView(APIView):
         except Exception as e:
             # Handle other exceptions (e.g., network errors)
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        client = settings.COGNITO_CLIENT
+        client = boto3.client(
+        'cognito-idp',
+        region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+        aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+        aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
+)
         try:
             # Call Cognito to authenticate the user
             response = client.initiate_auth(
@@ -225,18 +264,12 @@ class LoginView(APIView):
             # Handle any other exception
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-"""def get_cognito_jwks(user_pool_id, region):
-    url = f'https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json'
-    return requests.get(url).json()"""
 
 def get_cognito_jwks(user_pool_id):
-     #COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
-        #user_pool_id = settings.COGNITO_USER_POOL_ID
 
-    user_pool_id = "local_33DvJMdE"
-
-    localstack_url = 'http://localhost:9229'  # Adjust the URL/port as per your local setup
-    url = f'{localstack_url}/{user_pool_id}/.well-known/jwks.json'
+    user_pool_id = os.environ.get("USER_POOL_ID")
+    region = os.environ.get("REGION_NAME")
+    url = f'https://cognito-idp.{region}.amazonaws.com/{user_pool_id}/.well-known/jwks.json'
     
     return requests.get(url).json()
 
@@ -304,7 +337,14 @@ def validate_cognito_jwt(token, user_pool_id,region):
             if (token_use == 'id'):
                 decoded = jwt.decode(token, public_key, algorithms=['RS256'], audience=app_client_id, options={"require_exp": True})
             else:
-                decoded = jwt.decode(token, public_key, algorithms=['RS256'], issuer=f'http://localhost:9229/{user_pool_id}',options={"verify_aud": False, "require_exp": True} )  # Enable expiration check  # Skip audience verification
+               decoded = jwt.decode(
+                        token,
+                        public_key,
+                        algorithms=['RS256'],
+                        issuer=f'https://cognito-idp.{region}.amazonaws.com/{user_pool_id}',
+                        options={"verify_aud": False, "require_exp": True}
+                )  # Enable expiration check  # Skip audience verification
+
             # Token is valid and not expired
     except jwt.ExpiredSignatureError:
             # Handle the expired token
@@ -335,9 +375,9 @@ class VerifyTokenView(APIView):
         #COGNITO_USER_POOL_ID = os.getenv('COGNITO_USER_POOL_ID')
         #user_pool_id = settings.COGNITO_USER_POOL_ID
 
-        user_pool_id = "local_33DvJMdE"
+        user_pool_id = os.environ.get("USER_POOL_ID")
 
-        region = 'local'
+        region = os.environ.get("REGION_NAME")
         
 
         try:
@@ -353,3 +393,26 @@ class VerifyTokenView(APIView):
         except Exception as e:
             return Response({"message": f"Invalid token, {e}"}, status=status.HTTP_401_UNAUTHORIZED)
 
+
+class ForgotPasswordView(APIView): #Can only use for the real AWS Cognito
+    def post(self, request):
+        # Get the username (or email) from the request
+        username = request.data.get("username")
+
+        # Initialize the Cognito client
+        client = settings.COGNITO_CLIENT
+
+        try:
+            # Initiate the forgot password process
+            response = client.forgot_password(
+                ClientId='your-cognito-app-client-id',
+                Username=username
+            )
+            return Response(response, status=status.HTTP_200_OK)
+        except client.exceptions.UserNotFoundException:
+            return Response({"error": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+        except client.exceptions.InvalidParameterException as e:
+            # Handle other exceptions as necessary
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({"error": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

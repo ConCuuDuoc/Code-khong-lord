@@ -11,8 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import boto3
+import os
 
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+# Load env variables
+load_dotenv(dotenv_path)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -129,10 +134,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 COGNITO_CLIENT = boto3.client(
     'cognito-idp',
-    region_name='local',  # Replace with your AWS region
-    endpoint_url='http://localhost:9229',  # Replace with your Cognito endpoint
-    aws_access_key_id='123',  # Replace with your AWS access key
-    aws_secret_access_key='123'  # Replace with your AWS secret key
+    region_name = os.environ.get("REGION_NAME"),  # Replace with your AWS region
+    endpoint_url=os.environ.get("LOGIN_URL"),  # Replace with your Cognito endpoint
+    aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),  # Replace with your AWS access key
+    aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
 )
 
 CORS_ALLOW_ALL_ORIGINS = True
