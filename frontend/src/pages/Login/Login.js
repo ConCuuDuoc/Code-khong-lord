@@ -17,6 +17,7 @@ const Login = ({ login, isAuthenticated }) => {
         username: '',
         password: '' 
     });
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     
     const {username, password} = formData;
 
@@ -25,14 +26,35 @@ const Login = ({ login, isAuthenticated }) => {
     const onSubmit = e => {
         e.preventDefault();
 
-        login(username, password);
+        const val = login(username, password);
+        setIsLoggedIn(val)
     };
 
+    useEffect(() => {
+      const idToken = localStorage.getItem('idToken');
+      const refreshToken = localStorage.getItem('refreshToken');
+
+      if (isTokenValid(idToken)) {
+          setIsLoggedIn(true);
+      } else if (refreshToken) {
+          refreshAccessToken(refreshToken);
+      }
+  }, []);
+
+  const isTokenValid = (token) => {
+      if (!token) return false;
+      // Basic check - for example, checking token expiry
+      // Implement according to your token structure
+      return true;
+  };
+
+  const refreshAccessToken = async (refreshToken) => {
+      // ... refresh token logic ...
+  };
     //If the user authenticated
     //Redirect to the home page
-
-    if (isAuthenticated) {
-        return <Navigate to="/" />
+    if (isLoggedIn) {
+        return <Navigate to="/dashboard" />
     }
 
     return (

@@ -181,7 +181,7 @@
     position: relative;
 }
 
-.auth .email {
+.auth .username {
     align-items: center;
     border-color: #ffffff;
     border-radius: 12px;
@@ -192,11 +192,11 @@
     color: #ffffff;
 }
 
-.email .form-control {
+.username .form-control {
     background-color: transparent;
     color: #ffffff;
 }
-.email ::placeholder {
+.username ::placeholder {
     color: #ffffff
 }
 

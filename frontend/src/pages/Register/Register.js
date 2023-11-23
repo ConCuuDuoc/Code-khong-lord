@@ -1,10 +1,8 @@
 import React, {useState} from "react";
-import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import { Image } from "react-bootstrap";
-
 import { signup } from "../../actions/auth";
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import axios from 'axios';
 import facebook from "../../pages/Login/images/facebook.svg";
 import google from "../../pages/Login/images/google.svg";
@@ -15,7 +13,6 @@ require('dotenv').config();
 
 const Register = ({ signup, isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
-    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -58,7 +55,7 @@ const Register = ({ signup, isAuthenticated }) => {
         }
     };
     if (accountCreated){
-        return navigate('/confirm', { state: {username:name} });
+        return <Navigate to= {`/confirm/${name}`} />
     }
 
 

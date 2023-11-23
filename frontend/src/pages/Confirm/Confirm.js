@@ -4,14 +4,13 @@ import { connect } from "react-redux";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import { useParams } from 'react-router-dom';
 import Activateimg from "../../pages/Login/images/213.jpg";
-import { useLocation } from 'react-router-dom';
 import { confirm } from "../../actions/auth";
 
-const Confirm = () => {
+const Confirm = ({confirm}) => {
     const [isConfirmed, setIsConfirmed] = useState(false);
-    const location = useLocation();
-    const username = location.state ;
+    const { username } = useParams();
     const verify_user = async (e) => {
          // Ensure state exists or provide fallback
         try {
@@ -52,4 +51,4 @@ const Confirm = () => {
         </Container>
     );
 };
-export default connect(null) (Confirm);
+export default connect(null,{ confirm }) (Confirm);

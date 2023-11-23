@@ -70,7 +70,7 @@ export function Auth() {
                           {isLoggedIn ? (
                               <>
                                   {/* Routes available only when logged in */}
-                                  <Route exact path="/" element={<Dashboard />} />
+                                  <Route exact path="/dashboard" element={<Dashboard />} />
                                   {/* ... other authenticated routes ... */}
                               </>
                           ) : (
@@ -79,7 +79,7 @@ export function Auth() {
                                   <Route exact path="/" element={<Home />} />
                                   <Route exact path="/signup" element={<Register />} />
                                   <Route exact path="/login" element={<Login />} />
-                                  <Route exact path="/confirm" element={<Confirm />} />
+                                  <Route exact path="/confirm/:username" element={<Confirm />} />
                                   {/* ... other public routes ... */}
                               </>
                           )}
@@ -91,7 +91,7 @@ export function Auth() {
   );
 }
 
-export default Auth;
+export default App;
 
 
 
