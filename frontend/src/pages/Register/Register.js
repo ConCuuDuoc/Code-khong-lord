@@ -24,11 +24,11 @@ const Register = ({ signup, isAuthenticated }) => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         if (password === re_password) {
             try {
-            const val = signup(name, email, password, re_password);
+            const val =  await signup(name, email, password, re_password);
             setAccountCreated(val);
             }
             catch {
@@ -55,7 +55,7 @@ const Register = ({ signup, isAuthenticated }) => {
         }
     };
     if (accountCreated){
-        return <Navigate to= {`/confirm/${name}`} />
+        return <Navigate to={`/confirm/${name}`} />
     }
 
 

@@ -10,25 +10,30 @@ import "./Resetpassword.css"
 const Resetpassword = ({ reset_password }) => {
     const [requestSent, setRequestSent] = useState(false);
     const [formData, setFormData] = useState({
-        email: ''
+        username: ''
     });
     
-    const {email} = formData;
+    const {username} = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
 
-        reset_password(email);
-        setRequestSent(true);
+        try{
+        setRequestSent(reset_password(username));
+        }
+        catch {
+        setRequestSent(false)
+        }
+
     };
 
     //If the user authenticated
     //Redirect to the home page
 
     if (requestSent) {
-        return <Navigate to="/" />
+        return <Navigate to="/password/reset/confirm" />
     }
 
     return (
@@ -52,12 +57,12 @@ const Resetpassword = ({ reset_password }) => {
                                     <div className="upper-section">
                                         <div className="auth-text">
                                             <div className="text-wrapper-3">Forgot your password?</div>
-                                            <div className="text-wrapper-4">Please enter your email</div>
+                                            <div className="text-wrapper-4">Please enter your username</div>
                                         </div>
                                     <div className="credentials">
                                         <form onSubmit={e=>onSubmit(e)}>
                                             <div className="form-group email">
-                                                <input type="email" className="form-control" placeholder="Email" name="email" value={email} onChange={e=>onChange(e)} required/>
+                                                <input type="name" className="form-control" placeholder="Username" name="username" value={username} onChange={e=>onChange(e)} required/>
                                             </div>
                                             <button class="btn auth-bt-fp resetdiv-wrapper" type="submit">
                                                 <p className="text-wrapper-5">Reset password</p>

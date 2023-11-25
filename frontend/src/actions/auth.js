@@ -2,9 +2,59 @@ import axios from 'axios';
 
 require("dotenv").config();
 
-export const checkAuthenticated = () => async dispatch => {
-    
+export const checkAuthenticated = (AccessToken) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ AccessToken });
+        const response = await axios.post('http://localhost:6969/api-auth/verify-token', body,config);
+
+        if (response.data.UserConfirmed === "Tokens are valid") {
+            console.log("Tokens are valid", response.data);
+            // Store the access token
+            return true;
+        } else {
+            console.log('Login failed');
+            return false;
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        return false;
+    }
 };
+
+export const signup = (username, email, password) => async dispatch => {    
+        
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                };
+                
+                const body = JSON.stringify({ username, email, password});
+    
+                // Replace with your Django backend endpoint
+                const res = await axios.post('http://localhost:6969/api-auth/register', body, config);
+                
+                if (res.data.UserConfirmed === false) {
+                    // If successful, set account created to true
+                    return true;
+                } else {
+                    // User is confirmed
+                    console.error('Registration failed:', res.data.message);
+                    return false;// Proceed with post-registration logic
+                }
+            } catch {
+                console.error('Registration failed: Error');
+                // Handle registration failure
+                return false;
+            }
+        
+    };
 
 export const logout = () => async dispatch => {
 
@@ -41,38 +91,7 @@ export const login =  (username, password)  => async dispatch => {
 };
 
 
-
-export const signup = (username, email, password) => async dispatch => {    
-        
-            try {
-                const config = {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                };
-                
-                const body = JSON.stringify({ username, email, password});
-    
-                // Replace with your Django backend endpoint
-                const res = await axios.post('http://localhost:6969/api-auth/register', body, config);
-                
-                if (res.data.UserConfirmed === false) {
-                    // If successful, set account created to true
-                    return true;
-                } else {
-                    // User is confirmed
-                    console.error('Registration failed:', res.data.message);
-                    return false;// Proceed with post-registration logic
-                }
-            } catch {
-                console.error('Registration failed: Error');
-                // Handle registration failure
-                return false;
-            }
-        
-    };
-
-export const confirm = (username) => async dispatch  => {
+export const confirm = (username, confirmation_code) => async dispatch  => {
     // Ensure state exists or provide fallback
    
    try {
@@ -81,8 +100,7 @@ export const confirm = (username) => async dispatch  => {
                'Content-Type': 'application/json'
            }
        };
-           const code = "";
-           const body = JSON.stringify({username,code});
+           const body = JSON.stringify({username, confirmation_code});
            // Now call the confirm endpoint
            const res = await axios.post(`http://localhost:6969/api-auth/confirm`,body,config);
            if (res.data.message === "User confirmed successfully.") {
@@ -102,12 +120,60 @@ export const confirm = (username) => async dispatch  => {
        }
 }
 
-export const reset_password = (email) => async dispatch => {
-    
+export const reset_password = (username) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        
+        const body = JSON.stringify({username});
+
+        // Replace with your Django backend endpoint
+        const res = await axios.post('http://localhost:6969/api-auth/forgot-password', body, config);
+        
+        if (res.data.message === "Password reset initiated. Check your email for the verification code.") {
+            // If successful, set account created to true
+            return true;
+        } else {
+            // User is confirmed
+            console.error('Reset password failed:', res.data.message);
+            return false;// Proceed with post-registration logic
+        }
+    } catch {
+        console.error('Reset password failed:: Error');
+        // Handle registration failure
+        return false;
+    }
 };
 
-export const reset_password_confirm = (uid, token, new_password, re_new_password) => async dispatch => {
-   
+export const reset_password_confirm = (verification_code,new_password) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        
+        const body = JSON.stringify({verification_code,new_password});
+
+        // Replace with your Django backend endpoint
+        const res = await axios.post('http://localhost:6969/api-auth/new-password', body, config);
+        
+        if (res.data.message === "Password changed successfully.") {
+            // If successful, set account created to true
+            return true;
+        } else {
+            // User is confirmed
+            console.error('Reset password failed:', res.data.message);
+            return false;// Proceed with post-registration logic
+        }
+    } catch {
+        console.error('Reset password failed:: Error');
+        // Handle registration failure
+        return false;
+    }
 };
 
 

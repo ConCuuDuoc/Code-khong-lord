@@ -9,25 +9,31 @@ import "./Resetpasswordconfirm.css";
 
 const Resetpasswordconfirm = ({reset_password_confirm }) => {
     const [requestSent, setRequestSent] = useState(false);
-    const { uid, token } = useParams();
     const [formData, setFormData] = useState({
+        code:'',
         new_password: '',
         re_new_password: ''
     });
     
-    const {new_password, re_new_password} = formData;
+    const {code, new_password, re_new_password} = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
-
-        reset_password_confirm(uid, token, new_password, re_new_password);
-        setRequestSent(true);
+        if (new_password === re_new_password){
+        try{
+            setRequestSent(reset_password_confirm(code, new_password));
+        
+        }
+        catch {
+            setRequestSent(false);
+        }
+    }
     };
 
     if (requestSent) {
-        return <Navigate to="/" />
+        return <Navigate to="/login" />
     }
 
     return (
@@ -55,6 +61,9 @@ const Resetpasswordconfirm = ({reset_password_confirm }) => {
                                         </div>
                                     <div className="credentials">
                                         <form onSubmit={e=>onSubmit(e)}>
+                                        <div className="form-group passwd">
+                                                <input type="name" className="form-control" placeholder="Verification code" name="code" value={code} onChange={e=>onChange(e)} minlength="6" required/>
+                                            </div>
                                             <div className="form-group passwd">
                                                 <input type="password" className="form-control" placeholder="New Password" name="new_password" value={new_password} onChange={e=>onChange(e)} minlength="6" required/>
                                             </div>

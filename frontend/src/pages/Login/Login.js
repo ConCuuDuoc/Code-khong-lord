@@ -1,11 +1,8 @@
-import React, {useState} from "react";
-
+import React, { useState, useEffect } from 'react';
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import { Image } from "react-bootstrap";
-
-import { login } from "../../actions/auth";
-
+import { login, checkAuthenticated } from "../../actions/auth";
 import "./Login.css"
 import facebook from "./images/facebook.svg";
 import google from "./images/google.svg";
@@ -29,33 +26,6 @@ const Login = ({ login, isAuthenticated }) => {
         const val = login(username, password);
         setIsLoggedIn(val)
     };
-
-    useEffect(() => {
-      const idToken = localStorage.getItem('idToken');
-      const refreshToken = localStorage.getItem('refreshToken');
-
-      if (isTokenValid(idToken)) {
-          setIsLoggedIn(true);
-      } else if (refreshToken) {
-          refreshAccessToken(refreshToken);
-      }
-  }, []);
-
-  const isTokenValid = (token) => {
-      if (!token) return false;
-      // Basic check - for example, checking token expiry
-      // Implement according to your token structure
-      return true;
-  };
-
-  const refreshAccessToken = async (refreshToken) => {
-      // ... refresh token logic ...
-  };
-    //If the user authenticated
-    //Redirect to the home page
-    if (isLoggedIn) {
-        return <Navigate to="/dashboard" />
-    }
 
     return (
         <div className="auth">

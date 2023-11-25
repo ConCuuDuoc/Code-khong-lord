@@ -1,18 +1,33 @@
-.auth {
-    background-color: #0e1620;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0e1620;
+    color: #ffffff;
+    font-family: "Poppins-Medium", Helvetica;
+    margin-top: -8px;
+}
+
 
 .auth .div {
     background-color: #0e1620;
-    height: 915px;
+    height: 100%; 
     overflow: hidden;
     position: relative;
-    width: 1912px;
+    width: 100%; 
 }
 
 .auth .overlap {

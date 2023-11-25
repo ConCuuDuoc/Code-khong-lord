@@ -141,3 +141,10 @@ COGNITO_CLIENT = boto3.client(
 )
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTHENTICATION_BACKENDS = (
+
+    'social_core.backends.amazon.AmazonOAuth2',
+
+)
+

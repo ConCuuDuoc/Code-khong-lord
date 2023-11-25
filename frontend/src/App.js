@@ -80,6 +80,8 @@ export function Auth() {
                                   <Route exact path="/signup" element={<Register />} />
                                   <Route exact path="/login" element={<Login />} />
                                   <Route exact path="/confirm/:username" element={<Confirm />} />
+                                  <Route exact path="/reset_password" element={<Resetpassword />} />
+                                  <Route exact path="/password/reset/confirm" element={<Resetpasswordconfirm />} />
                                   {/* ... other public routes ... */}
                               </>
                           )}
@@ -92,7 +94,6 @@ export function Auth() {
 }
 
 export default App;
-
 
 
 
