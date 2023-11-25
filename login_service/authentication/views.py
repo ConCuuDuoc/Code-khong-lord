@@ -11,6 +11,7 @@ from jwt.algorithms import RSAAlgorithm
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 from django.http import JsonResponse
+from urllib.parse import urlencode
 
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
@@ -380,3 +381,45 @@ class ConfirmNewPasswordView(APIView):
         except Exception as e:
             # Log e for debugging
             return Response({"message": "An unexpected error occurred."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class CognitoGoogle(APIView):
+    def get(self, request, *args, **kwargs):
+        base_url = os.getenv("AUTH_URL")
+        app_client_id = os.getenv("APP_CLIENT_ID")
+        redirect_link = os.getenv("REDIRECT_URL")
+
+        query_params = {
+        'response_type': 'code',
+        'client_id': app_client_id,
+        'identity_provider': 'Google',
+        'redirect_uri': redirect_link,
+        'scope': 'email openid profile',
+        }
+        return Response({"url":f"{base_url}?{urlencode(query_params)}"})
+
+class CognitoCallbackAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        code = request.data.get('code')
+
+        if code:
+            # Exchange code for tokens
+            token_url = os.getenv("TOKEN_URL")
+            headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+            app_client_id = os.getenv("APP_CLIENT_ID")
+            redirect_link = os.getenv("REDIRECT_URL")
+            data = {
+                'grant_type': 'authorization_code',
+                'client_id': app_client_id,
+                'code': code,
+                'redirect_uri': redirect_link
+            }
+            response = requests.post(token_url, headers=headers, data=data)
+
+            if response.status_code == 200:
+                tokens = response.json()
+                # Process these tokens (e.g., log the user in, create a user session, etc.)
+                return Response({'message': 'Login successful', 'tokens': tokens})
+            else:
+                return Response({'message': 'Error exchanging code for tokens'}, status=response.status_code)
+
+        return Response({'message': 'No code provided'}, status=400)

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ConfirmRegistrationView, RegisterView, LoginView, VerifyTokenView, ForgotPasswordView, ConfirmNewPasswordView
+from .views import ConfirmRegistrationView, RegisterView, LoginView, VerifyTokenView, ForgotPasswordView, ConfirmNewPasswordView,CognitoCallbackAPIView,CognitoGoogle
 
 urlpatterns = [
     path('register', RegisterView.as_view(), name='register'),
@@ -8,4 +8,6 @@ urlpatterns = [
     path('verify-token', VerifyTokenView.as_view(), name='verify-token'),
     path('forgot-password',ForgotPasswordView.as_view(),name='forgot-password'),
     path('new-password',ConfirmNewPasswordView.as_view(), name='new-password'),
+    path('callback', CognitoCallbackAPIView.as_view(), name='cognito-callback'),
+    path('google', CognitoGoogle.as_view(), name='cognito-google'),
 ]

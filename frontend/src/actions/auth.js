@@ -62,6 +62,18 @@ export const logout = () => async dispatch => {
 
 export const load_user = () => async dispatch => {
    
+}
+export const loginwithGoogle = () => async dispatch => {
+
+    try {
+    const response = await axios.get('http://localhost:6969/api-auth/google');
+    window.location.replace (response.data.url)
+
+}
+catch (error) {
+    console.error('Login with Google failed:', error);
+    // Handle the error appropriately
+}
 };
 
 export const login =  (username, password)  => async dispatch => {
@@ -79,7 +91,7 @@ export const login =  (username, password)  => async dispatch => {
             // Store the access token
             localStorage.setItem('access', response.data.AuthenticationResult.AccessToken);
             localStorage.setItem('refresh',response.data.AuthenticationResult.RefreshToken)
-            return false;
+            return true;
         } else {
             console.log('Login failed');
             return false;
@@ -148,7 +160,7 @@ export const reset_password = (username) => async dispatch => {
     }
 };
 
-export const reset_password_confirm = (verification_code,new_password) => async dispatch => {
+export const reset_password_confirm = (username, verification_code,new_password) => async dispatch => {
     try {
         const config = {
             headers: {
@@ -156,7 +168,7 @@ export const reset_password_confirm = (verification_code,new_password) => async 
             }
         };
         
-        const body = JSON.stringify({verification_code,new_password});
+        const body = JSON.stringify({username, verification_code,new_password});
 
         // Replace with your Django backend endpoint
         const res = await axios.post('http://localhost:6969/api-auth/new-password', body, config);

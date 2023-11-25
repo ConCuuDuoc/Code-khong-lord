@@ -31,9 +31,9 @@ const Resetpassword = ({ reset_password }) => {
 
     //If the user authenticated
     //Redirect to the home page
-
+    
     if (requestSent) {
-        return <Navigate to="/password/reset/confirm" />
+        return <Navigate to={`/password/reset/confirm/${username}`} />
     }
 
     return (

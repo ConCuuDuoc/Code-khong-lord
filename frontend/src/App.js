@@ -35,30 +35,6 @@ function App() {
 }
 
 export function Auth() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-      const idToken = localStorage.getItem('idToken');
-      const accessToken = localStorage.getItem('accessToken');
-      const refreshToken = localStorage.getItem('refreshToken');
-
-      if (isTokenValid(idToken)) {
-          setIsLoggedIn(true);
-      } else if (refreshToken) {
-          refreshAccessToken(refreshToken);
-      }
-  }, []);
-
-  const isTokenValid = (token) => {
-      if (!token) return false;
-      // Basic check - for example, checking token expiry
-      // Implement according to your token structure
-      return true;
-  };
-
-  const refreshAccessToken = async (refreshToken) => {
-      // ... refresh token logic ...
-  };
 
   return (
       <Provider store={store}>
@@ -67,13 +43,13 @@ export function Auth() {
                   <Layout>
                       <Routes>
                           {/* Conditionally render routes based on isLoggedIn */}
-                          {isLoggedIn ? (
+                          
                               <>
                                   {/* Routes available only when logged in */}
                                   <Route exact path="/dashboard" element={<Dashboard />} />
                                   {/* ... other authenticated routes ... */}
                               </>
-                          ) : (
+                          
                               <>
                                   {/* Public routes */}
                                   <Route exact path="/" element={<Home />} />
@@ -81,10 +57,10 @@ export function Auth() {
                                   <Route exact path="/login" element={<Login />} />
                                   <Route exact path="/confirm/:username" element={<Confirm />} />
                                   <Route exact path="/reset_password" element={<Resetpassword />} />
-                                  <Route exact path="/password/reset/confirm" element={<Resetpasswordconfirm />} />
+                                  <Route exact path="/password/reset/confirm/:username" element={<Resetpasswordconfirm />} />
                                   {/* ... other public routes ... */}
                               </>
-                          )}
+                          
                       </Routes>
                   </Layout>
               </div>

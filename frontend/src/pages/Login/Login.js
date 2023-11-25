@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
+
 import {Navigate} from "react-router-dom";
 import {connect} from "react-redux";
 import { Image } from "react-bootstrap";
-import { login, checkAuthenticated } from "../../actions/auth";
+import { login, checkAuthenticated, loginwithGoogle } from "../../actions/auth";
 import "./Login.css"
 import facebook from "./images/facebook.svg";
 import google from "./images/google.svg";
 import github from "./images/github.svg";
 import line1 from "./images/line-1.svg";
+import axios from 'axios';
 
 const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
@@ -26,6 +28,23 @@ const Login = ({ login, isAuthenticated }) => {
         const val = login(username, password);
         setIsLoggedIn(val)
     };
+
+    const continuewithGoogle = async() => {
+        try{
+            const response = await axios.get('http://localhost:6969/api-auth/google');
+            window.location.replace (response.data.url)
+        } catch (err) {
+        console.error('Error during Google OAuth request:', err);
+    }
+    };
+
+
+    if (isLoggedIn){
+        return <Navigate to="/dashboard" />
+    }
+    if (isAuthenticated) {
+        return <Navigate to="/dashboard" />
+    }
 
     return (
         <div className="auth">
@@ -79,7 +98,7 @@ const Login = ({ login, isAuthenticated }) => {
                                     <Image className="line" alt="Line" src={line1} />
                                 </div>
                                 <div className="social">
-                                    <Image className="frame-4" alt="google" src={google} />
+                                    <Image className="frame-4" alt="google" src={google} onClick={continuewithGoogle} />
                                     <Image className="frame-4" alt="facebook" src={facebook} />
                                     <Image className="frame-4" alt="github" src={github} />
                                 </div>

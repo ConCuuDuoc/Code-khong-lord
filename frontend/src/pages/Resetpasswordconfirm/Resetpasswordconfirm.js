@@ -9,6 +9,7 @@ import "./Resetpasswordconfirm.css";
 
 const Resetpasswordconfirm = ({reset_password_confirm }) => {
     const [requestSent, setRequestSent] = useState(false);
+    const {username} = useParams()
     const [formData, setFormData] = useState({
         code:'',
         new_password: '',
@@ -23,7 +24,7 @@ const Resetpasswordconfirm = ({reset_password_confirm }) => {
         e.preventDefault();
         if (new_password === re_new_password){
         try{
-            setRequestSent(reset_password_confirm(code, new_password));
+            setRequestSent(reset_password_confirm(username, code, new_password));
         
         }
         catch {
