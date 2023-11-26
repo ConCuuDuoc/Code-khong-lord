@@ -15,8 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
+from youtubeapi.views import search
 
 urlpatterns = [
     path('api-auth/', include('authentication.urls')),
+    path('search/', search, name='search'),
     # ... other url patterns
 ]

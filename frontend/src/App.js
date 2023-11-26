@@ -12,7 +12,7 @@ import Layout from './layout/Layout.js';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Setting from './pages/Setting/Setting';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
-import Categories from './pages/Categories/Categories';
+import Categories from './pages/Categories/Categories.jsx';
 import MyLearning from './pages/MyLearning/MyLearning';
 import Overview from './pages/Overview/Overview';
 import axios from 'axios';
@@ -51,7 +51,7 @@ export function Auth() {
                                     <Route exact path="/categories" element={<Categories />} />
                                     <Route exact path="/mylearning" element={<MyLearning />} />
                                     <Route exact path="/overview/:videoID/:title" element={<Overview />} />
-                                    <Route exact path="/learningmode/:videoID/:title" element={<LearningMode />} />
+                                    {/*<Route exact path="/learningmode/:videoID/:title" element={<LearningMode />} />*/}
                                     <Route exact path="/coursecart" element={<CourseCart />} /> 
                                   </Route>
                                   {/* ... other authenticated routes ... */}
