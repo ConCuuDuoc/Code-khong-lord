@@ -51,7 +51,7 @@ export function Auth() {
                                     <Route exact path="/categories" element={<Categories />} />
                                     <Route exact path="/mylearning" element={<MyLearning />} />
                                     <Route exact path="/overview/:videoID/:title" element={<Overview />} />
-                                    {/*<Route exact path="/learningmode/:videoID/:title" element={<LearningMode />} />*/}
+                                    <Route exact path="/learningmode/:videoID/:title" element={<LearningMode />} />
                                     <Route exact path="/coursecart" element={<CourseCart />} /> 
                                   </Route>
                                   {/* ... other authenticated routes ... */}

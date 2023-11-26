@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import "./Overview.css";
 import Button from 'react-bootstrap/Button';
 import LeftBar from "../../Components/Leftbar/leftbar"; 
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
 
 const Overview = () => {
+  const { videoID, title } = useParams();
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      if (videoID) {
+        try {
+          setLoading(true);
+          const response = await axios.get(
+            `${process.env.REACT_APP_API_URL}/search/`,
+            {
+              params: {
+                query: videoID,
+              },
+            }
+          );
+          if (response.data && response.data.videos) {
+            setVideos(response.data.videos);
+          }
+        } catch (error) {
+          console.error("Error fetching videos from YouTube:", error);
+          setError("Error fetching videos. Please try again later.");
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setVideos([]);
+      }
+    };
+
+    fetchVideos();
+  }, [videoID, title]);
 
   return (
     <div className="overview-of-course">
@@ -14,14 +50,11 @@ const Overview = () => {
         <p className="course-details">{`Course details: `}</p>
         <p className="course-details">&nbsp;</p>
         <p className="course-details-1">
-
-          Software developers are constantly told to use secure coding
-          practices. Luckily, with today's tools, secure code doesn't take a lot
-          of time or effort. There are security frameworks (authentication,
-          authorization, etc.) developers can use as their own. There are also
-          static and dynamic code analysis tools to test code. Plus, with
-          security patterns that can be implemented at the design level—before
-          coding ever begins—you can make sure you're not reinventing the wheel.
+          {videos.map((video) => (
+            <div key={video.id}>
+              <p>{video.snippet.description}</p>
+            </div>
+          ))}
 
         </p>
 
@@ -46,9 +79,12 @@ const Overview = () => {
         <p className="course-details">&nbsp;</p>
       </div>
      
-         <Button className="button-base">
-            <div className="text-2">Join</div>
-        </Button>     
+      <Link to={`/learningmode/${videoID}/${encodeURIComponent(title)}`}>
+        <Button className="button-base">
+          <div className="text-2">Join</div>
+        </Button>
+      </Link>
+  
     </div>
   );
 };

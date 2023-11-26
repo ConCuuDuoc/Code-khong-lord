@@ -7,44 +7,38 @@ import Noti from "./images/Notification.svg";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-//require('dotenv').config();
-
-// function Header() {
-//   const [searchText, setSearchText] = useState("");
-//   const [videos, setVideos] = useState([]);
-  
-
-//   const handleSearchChange = async (e) => {
-//     const query = e.target.value;
-//     setSearchText(query);
-//     if (query) {
-//       try {
-//         // Perform a search query
-//         const response = await axios.get(
-//           `${process.env.REACT_APP_API_URL}/search/`,
-//           {
-//             params: {
-//               query: query,
-//             },
-//           }
-//         );
-//         if (response.data && response.data.videos) {
-//           setVideos(response.data.videos);
-//         }
-//       } catch (error) {
-//         console.error("Error fetching videos from YouTube:", error);
-//       }
-//     } else {
-//       setVideos([]);
-//     }
-//   };
+require('dotenv').config();
 
 function Header() {
   const [searchText, setSearchText] = useState("");
+  const [videos, setVideos] = useState([]);
+  
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
+  const handleSearchChange = async (e) => {
+    const query = e.target.value;
+    setSearchText(query);
+    if (query) {
+      try {
+        // Perform a search query
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/search/`,
+          {
+            params: {
+              query: query,
+            },
+          }
+        );
+        if (response.data && response.data.videos) {
+          setVideos(response.data.videos);
+        }
+      } catch (error) {
+        console.error("Error fetching videos from YouTube:", error);
+      }
+    } else {
+      setVideos([]);
+    }
   };
+
 
   return (
     <div className='box'>
@@ -98,7 +92,7 @@ function Header() {
           </Dropdown>
           </div>
           
-          {/* {videos.length > 0 && (
+          {videos.length > 0 && (
             <div className="search-results">
               {videos.map((video) => (
                 <Link to={`/learningmode/${video.snippet.resourceId.videoId}/${encodeURIComponent(video.snippet.title)}`} key={video.snippet.resourceId.videoId}>
@@ -108,7 +102,7 @@ function Header() {
                 </Link>
               ))}
             </div>
-          )} */}
+          )}
 
 
       </div>

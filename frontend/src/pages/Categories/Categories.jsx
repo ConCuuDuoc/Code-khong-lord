@@ -21,8 +21,8 @@ const courseData = [
       currentSkill: "Front-end",
       currentCourseName: "Introduction to Front-End",
       currentCourseSkills: "Web Development, HTML and CSS",
-      //videoID: "x8INk17lYgs",
-      //title: "Test youtube api"
+      videoID: "x8INk17lYgs",
+      title: "Test youtube api"
   },
   {
       currentId: 2,
@@ -30,8 +30,8 @@ const courseData = [
       currentSkill: "Back-end",
       currentCourseName: "Introduction to Django",
       currentCourseSkills: "Web Development, Django, Python",
-      //videoID: "zL8w9CytHCs",
-      //title: "Test youtube api 2"
+      videoID: "zL8w9CytHCs",
+      title: "Test youtube api 2"
   },
   {
       currentId: 3,
@@ -39,8 +39,8 @@ const courseData = [
       currentSkill: "Data Science",
       currentCourseName: "Become a Data Analyst",
       currentCourseSkills: "Bi Tools, Python, SQL, Data Visualization",
-      //videoID: "X3zptTiGddY",
-      //title: "Test youtube api 3"
+      videoID: "X3zptTiGddY",
+      title: "Test youtube api 3"
   },
   {
       currentId: 4,
@@ -48,8 +48,8 @@ const courseData = [
       currentSkill: "AI & ML",
       currentCourseName: "Introduction to Machine Learning",
       currentCourseSkills: "Machine Learning",
-      //videoID: "zL8w9CytHCs",
-      //title: "Test youtube api 2"
+      videoID: "zL8w9CytHCs",
+      title: "Test youtube api 2"
   },
   {
       currentId: 5,
@@ -57,8 +57,8 @@ const courseData = [
       currentSkill: "Cyber Security",
       currentCourseName: "Cryptography",
       currentCourseSkills: "Mathematics, Cryptography",
-      //videoID: "X3zptTiGddY",
-      //title: "Test youtube api 3"
+      videoID: "X3zptTiGddY",
+      title: "Test youtube api 3"
   },
   {
       currentId: 6,
@@ -66,8 +66,8 @@ const courseData = [
       currentSkill: "Networking",
       currentCourseName: "Introduction to Networking",
       currentCourseSkills: "Networking",
-      //videoID: "x8INk17lYgs",
-      //title: "Test youtube api"
+      videoID: "x8INk17lYgs",
+      title: "Test youtube api"
   },
 ];
 
@@ -168,8 +168,8 @@ function Categories () {
                   currentCourseName={course.currentCourseName}
                   currentCourseSkills={course.currentCourseSkills}
                   addToCart={addToCart}
-                  //videoID={course.videoID}
-                  //title = {course.title}
+                  videoID={course.videoID}
+                  title = {course.title}
                 />
               </Col>
             ))}
