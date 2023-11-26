@@ -12,8 +12,15 @@ const CourseItem = ({
   currentSkill,
   currentCourseName,
   currentCourseSkills,
-  addToCart
+  addToCart,
+  videoID,
+  title,
 }) => {
+  const navigate = useNavigate(); // Initialize the navigate function
+
+  const handleEnrollClick = () => {
+    navigate(`/overview/${videoID}/${encodeURIComponent(title)}`);
+};
 
   return (
     <Card className="careers-card">
@@ -44,7 +51,7 @@ const CourseItem = ({
         <Row className="careers-card-footer">
           <hr />
           <Col md={5}>
-            <Button variant="primary" className="button-buy" onClick={addToCart}>
+            <Button variant="primary" className="button-buy" onClick={handleEnrollClick}>
               Enroll
             </Button>
           </Col>
