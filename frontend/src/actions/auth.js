@@ -57,7 +57,15 @@ export const signup = (username, email, password) => async dispatch => {
     };
 
 export const logout = () => async dispatch => {
-
+    try {
+        const response = await axios.get('http://localhost:6969/api-auth/logout');
+        window.location.replace (response.data.url)
+    
+    }
+    catch (error) {
+        console.error('Login with Google failed:', error);
+        // Handle the error appropriately
+    }
 };
 
 export const load_user = () => async dispatch => {

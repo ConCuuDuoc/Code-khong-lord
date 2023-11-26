@@ -54,6 +54,7 @@ body {
   height: 100%; 
   font-family: 'Poppins', sans-serif; 
   background-color: #0E1620;
+  margin-top: -10px;
 }
 .dashboard-profile-settings-child {
   border-radius: 0 var(--br-11xl) var(--br-11xl) 0;

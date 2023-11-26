@@ -28,9 +28,11 @@ import middlebackgroundimg from '../../images/middleimagesbackground.svg';
 import Background from '../../images/background2.svg';
 import { Link } from 'react-router-dom';
 import Footer from "../../Components/Footer/Footer"; 
+import SearchBar from '../../Components/SearchBar/SearchBar';
+import Category from '../../Components/Category/Category';
 
 function Home () {
-
+    
     return (
         <div className='background'>
             {/* navbar */}
@@ -44,7 +46,7 @@ function Home () {
                             <a className="nav-link" href="/">Home</a>
                         </li>
                         <li className="nav-item 2">
-                            <a className="nav-link" href="/">Categories</a>
+                            <a className="nav-link" href="/categories">Categories</a>
                         </li>
                         <li className="nav-item 3">
                             <a className="nav-link" href="/">Contact us</a>
@@ -84,15 +86,7 @@ function Home () {
                             <Image className="backgroundimg3" src={middlebackgroundimg} alt="qua" />
                         </div>
                     </Col>
-                    <Col class="position-relative">
-                        <div class="col-md-8 justify-content-center">
-                            <div class="search">
-                                <i class="fa fa-search"></i>
-                                <input type="text" class="form-control" placeholder="What do you want to learn"/>
-                                <button class="btn btn-primary">Learn</button>
-                            </div>
-                        </div>
-                    </Col>
+                    <SearchBar />
                 </Row>
             </Container>
             <Container className="Categories">
@@ -148,6 +142,7 @@ function Home () {
                     <h5 className='click'>
                         Click on the categories and explore all courses
                     </h5>
+                    <Category />
                 </Col>
             </Container>
             <Container className='popular'>
@@ -330,11 +325,6 @@ function Home () {
                         </div>
                     </Col>
                 </Row>
-                <Row className='popularbutton'>
-                    <Button className="explore">
-                        <div className='buttontext'>Explore all courses</div>
-                    </Button>
-                </Row>
             </Container>
             <Container className='how' >
                 
@@ -457,8 +447,8 @@ function Home () {
                                     <Accordion.Header>
                                         <p>
                                             How can I contact 
-                                            <span className="code code"> Code</span> 
-                                            <span className="lord lord">Lord </span> 
+                                            <span className="codecode1"> Code</span> 
+                                            <span className="lordlord1">Lord </span> 
                                             if I have issues or questions?
                                         </p>             
                                     </Accordion.Header>
@@ -471,7 +461,7 @@ function Home () {
                                     <Accordion.Header>
                                         <p>
                                             Will I receive a 
-                                            <span className="lord lord"> certificate </span> 
+                                            <span className="lordlord1"> certificate </span> 
                                             upon course completion?
                                         </p>
                                     </Accordion.Header>
@@ -484,7 +474,7 @@ function Home () {
                                     <Accordion.Header>
                                         <p>
                                             How can I 
-                                            <span className='lord lord'> interact </span> 
+                                            <span className='lordlord1'> interact </span> 
                                             with instructors and fellow learners?
                                         </p>
                                     </Accordion.Header>

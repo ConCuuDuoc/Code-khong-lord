@@ -3,6 +3,8 @@
   height: 100%;
   width: 100%;
   z-index: -2;
+  overflow-x: hidden;
+  margin-top: -10px;
 }
 
 .codelord {
@@ -1018,29 +1020,12 @@
     margin-left: -200px;
 }
 
-.popularbutton {
-margin-left: 38%;
-}
-
-.popularbutton .explore {
-    margin-top: 80px;
-    width: 328px;
-    height: 76px;
-    background-color: #FAB437;
-    border-radius: 47px;
-}
-
-.popularbutton .buttontext {
-    color: #20344A;
-    font-size: 27px;
-    font-weight: bold;
-}
 
 /*How page*/
 .how .background2 {
     width: 1920px;
     margin-left: -25%;
-    background-color: #000000;
+
 }
 
 .boxsignup {
@@ -1239,4 +1224,31 @@ margin-left: 38%;
 
 .footer{
   background-color: #20344A;
+}
+
+.code code{
+  color: #D9ECFF;
+  font-weight: bold;
+}
+
+.lord lord{
+  color: #21B573;
+  font-weight: bold;
+}
+
+.codecode1{
+  color: #D9ECFF;
+  font-weight: bold;
+}
+
+.lordlord1{
+  color: #21B573;
+  font-weight: bold;
+}
+
+.centered-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
 }

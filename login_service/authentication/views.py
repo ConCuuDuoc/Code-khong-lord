@@ -10,8 +10,8 @@ from django.conf import settings
 from jwt.algorithms import RSAAlgorithm
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
-from django.http import JsonResponse
 from urllib.parse import urlencode
+from django.shortcuts import redirect
 
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
@@ -423,3 +423,16 @@ class CognitoCallbackAPIView(APIView):
                 return Response({'message': 'Error exchanging code for tokens'}, status=response.status_code)
 
         return Response({'message': 'No code provided'}, status=400)
+    
+class CognitoLogoutView(APIView):
+    def get(self, request, *args, **kwargs):
+        logout_url = os.getenv("LOGOUT_URL")
+        app_client_id = os.getenv("APP_CLIENT_ID")
+        redirect_link = os.getenv("REDIRECT_LOGOUT")
+        query_params = {
+            'client_id': app_client_id,
+            'logout_uri': redirect_link,
+        }
+
+        logout_uri = f"{logout_url}?{urlencode(query_params)}"
+        return redirect(logout_uri)
