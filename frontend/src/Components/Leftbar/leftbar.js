@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import "./Leftbar.css";
+import "./leftbar.css";
 
 import home from "./images/Home.svg";
 import mylearning from "./images/3 User.svg";

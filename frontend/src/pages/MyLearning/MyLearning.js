@@ -1,8 +1,8 @@
 import React from "react";
 import "./MyLearning.css";
 import meta from "./images/meta.svg"
-import LeftBar from "../../Components/LeftBar/Leftbar";
-import Header from "../../Components/Header/Header";
+import LeftBar from "../../Components/Leftbar/leftbar";
+import Header from "../../Components/Header/header";
 
 const CourseCard = ({ title, lessons, category, skills, progress, source }) => {
   const progressBarWidth = `${parseFloat(progress) * 12}px`; 

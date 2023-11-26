@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-poppins: Poppins;
+  --font-proxima-nova: "Proxima Nova";
+  --font-open-sans: "Open Sans";
+  --font-koho: KoHo;
+
+  /* font sizes */
+  --font-size-xl: 20px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-mini: 15px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-royalblue: #0069ff;
+  --color-indianred: #c84545;
+  --color-lightgray: #d0cece;
+  --color-darkgray: #b2b2b2;
+  --color-mediumseagreen: #21b573;
+  --color-darkslategray: #21354b;
+
+  /* Gaps */
+  --gap-5xs: 8px;
+  --gap-33xl-9: 52.9px;
+
+  /* Paddings */
+  --padding-2xs: 11px;
+  --padding-xs: 12px;
+  --padding-mid: 17px;
+  --padding-smi: 13px;
+  --padding-7xs: 6px;
+
+  /* Border radiuses */
+  --br-21xl: 40px;
+  --br-5xs: 8px;
+  --br-3xs-6: 9.6px;
+  --br-11xl: 30px;
+}
+
+.dashboard-profile-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+  font-family: 'Poppins', sans-serif; 
+  background-color: #0E1620;
+}
+.dashboard-profile-settings-child {
+  border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
+  height: 100vh;
+}
+
+.title {
+  margin-top: 0%;
+  font-size: 60px;
+  margin-left: -40%;
+}
+
+.youtube {
+  margin-top: 5%;
+  margin-left: 10%;
+}

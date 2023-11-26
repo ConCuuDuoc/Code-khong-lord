@@ -38,7 +38,7 @@ const Register = ({ signup, isAuthenticated }) => {
     };
     const continuewithGoogle = async() => {
         try{
-        const response = await axios.get('http://localhost:6969/api-auth/google');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/google`);
         window.location.replace (response.data.url)
         }
         catch (err) {

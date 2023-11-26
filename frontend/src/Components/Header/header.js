@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Header.css";
+import "./header.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from "react-bootstrap/Dropdown";
 import Avatar from "./images/Allura Avatar.svg";

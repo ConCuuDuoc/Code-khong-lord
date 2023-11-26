@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./Setting.css";
-import LeftBar from "../../Components/LeftBar/Leftbar";
+import LeftBar from "../../Components/Leftbar/leftbar";
 
 
 const Setting = () => {

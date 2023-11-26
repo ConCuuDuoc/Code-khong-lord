@@ -2,10 +2,10 @@ import React, {useState} from "react";
 import "./Categories.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import LeftBar from "../../Components/LeftBar/Leftbar"; 
+import LeftBar from "../../Components/Leftbar/leftbar"; 
 
 import CourseItem from "../../Components/CourseItem/CourseItem"; 
-import Header from "../../Components/Header/Header"; 
+import Header from "../../Components/Header/header"; 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Cyber from "./images/cyber-security-icon.svg";

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Overview.css";
 import Button from 'react-bootstrap/Button';
-import LeftBar from "../../Components/LeftBar/Leftbar"; 
+import LeftBar from "../../Components/Leftbar/leftbar"; 
 
 const Overview = () => {
 

@@ -10,7 +10,7 @@ export const checkAuthenticated = (AccessToken) => async dispatch => {
             }
         };
         const body = JSON.stringify({ AccessToken });
-        const response = await axios.post('http://localhost:6969/api-auth/verify-token', body,config);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/verify-token`, body,config);
 
         if (response.data.UserConfirmed === "Tokens are valid") {
             console.log("Tokens are valid", response.data);
@@ -38,7 +38,7 @@ export const signup = (username, email, password) => async dispatch => {
                 const body = JSON.stringify({ username, email, password});
     
                 // Replace with your Django backend endpoint
-                const res = await axios.post('http://localhost:6969/api-auth/register', body, config);
+                const res = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/register`, body, config);
                 
                 if (res.data.UserConfirmed === false) {
                     // If successful, set account created to true
@@ -58,7 +58,7 @@ export const signup = (username, email, password) => async dispatch => {
 
 export const logout = () => async dispatch => {
     try {
-        const response = await axios.get('http://localhost:6969/api-auth/logout');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/logout`);
         window.location.replace (response.data.url)
     
     }
@@ -74,7 +74,7 @@ export const load_user = () => async dispatch => {
 export const loginwithGoogle = () => async dispatch => {
 
     try {
-    const response = await axios.get('http://localhost:6969/api-auth/google');
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/google`);
     window.location.replace (response.data.url)
 
 }
@@ -92,7 +92,7 @@ export const login =  (username, password)  => async dispatch => {
             }
         };
         const body = JSON.stringify({ username, password });
-        const response = await axios.post('http://localhost:6969/api-auth/login', body,config);
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/login`, body,config);
 
         if (response.data && response.data.AuthenticationResult) {
             console.log('Login successful', response.data);
@@ -122,7 +122,7 @@ export const confirm = (username, confirmation_code) => async dispatch  => {
        };
            const body = JSON.stringify({username, confirmation_code});
            // Now call the confirm endpoint
-           const res = await axios.post(`http://localhost:6969/api-auth/confirm`,body,config);
+           const res = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/confirm`,body,config);
            if (res.data.message === "User confirmed successfully.") {
                // If successful, set account created to true
                return true;
@@ -151,7 +151,7 @@ export const reset_password = (username) => async dispatch => {
         const body = JSON.stringify({username});
 
         // Replace with your Django backend endpoint
-        const res = await axios.post('http://localhost:6969/api-auth/forgot-password', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/forgot-password`, body, config);
         
         if (res.data.message === "Password reset initiated. Check your email for the verification code.") {
             // If successful, set account created to true
@@ -179,7 +179,7 @@ export const reset_password_confirm = (username, verification_code,new_password)
         const body = JSON.stringify({username, verification_code,new_password});
 
         // Replace with your Django backend endpoint
-        const res = await axios.post('http://localhost:6969/api-auth/new-password', body, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api-auth/new-password`, body, config);
         
         if (res.data.message === "Password changed successfully.") {
             // If successful, set account created to true

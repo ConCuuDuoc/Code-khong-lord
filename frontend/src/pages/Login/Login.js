@@ -11,38 +11,43 @@ import github from "./images/github.svg";
 import line1 from "./images/line-1.svg";
 import axios from 'axios';
 
+require('dotenv').config();
+
 const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
         username: '',
         password: '' 
     });
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    
+
     const {username, password} = formData;
+    
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = async(e) => {
         e.preventDefault();
-
-        const val = login(username, password);
-        setIsLoggedIn(val)
+        const success = await login(username, password);
+        if (success) {
+            setIsLoggedIn(true); 
+          } else {
+            console.log('Login failed.');
+          }
     };
 
     const continuewithGoogle = async() => {
         try{
-            const response = await axios.get('http://localhost:6969/api-auth/google');
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/google`);
             window.location.replace (response.data.url)
         } catch (err) {
         console.error('Error during Google OAuth request:', err);
     }
     };
 
-
-    if (isLoggedIn){
-        return <Navigate to="/dashboard" />
-    }
-    if (isAuthenticated) {
+    
+    if (isLoggedIn) {
+        console.log('Redirecting to /dashboard');
         return <Navigate to="/dashboard" />
     }
 

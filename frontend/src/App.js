@@ -12,13 +12,15 @@ import Layout from './layout/Layout.js';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Setting from './pages/Setting/Setting';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
-// import Categories from './pages/Categories/Categories';
-import Categories from './pages/Categories/Categories.jsx';
+import Categories from './pages/Categories/Categories';
 import MyLearning from './pages/MyLearning/MyLearning';
 import Overview from './pages/Overview/Overview';
 import axios from 'axios';
-// import CourseItem from './Components/CourseItem/CourseItem'
-// import CourseCart from './pages/CourseCart/CourseCart'
+import CourseItem from './Components/CourseItem/CourseItem'
+import CourseCart from './pages/CourseCart/CourseCart'
+import LearningMode from './pages/LearningMode/LearningMode.js';
+
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -42,11 +44,17 @@ export function Auth() {
               <div className="Auth">
                   <Layout>
                       <Routes>
-                          {/* Conditionally render routes based on isLoggedIn */}
-                          
                               <>
                                   {/* Routes available only when logged in */}
-                                  <Route exact path="/dashboard" element={<Dashboard />} />
+                                  <Route exact element={<PrivateRoute  />}>
+                                    <Route exact path="/dashboard" element={<Dashboard />} />
+                                    <Route exact path="/setting" element={<Setting />} /> 
+                                    <Route exact path="/categories" element={<Categories />} />
+                                    <Route exact path="/mylearning" element={<MyLearning />} />
+                                    <Route exact path="/overview/:videoID/:title" element={<Overview />} />
+                                    <Route exact path="/learningmode/:videoID/:title" element={<LearningMode />} />
+                                    <Route exact path="/coursecart" element={<CourseCart />} /> 
+                                  </Route>
                                   {/* ... other authenticated routes ... */}
                               </>
                           
@@ -70,15 +78,4 @@ export function Auth() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
 

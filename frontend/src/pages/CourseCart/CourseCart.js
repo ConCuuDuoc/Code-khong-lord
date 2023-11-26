@@ -1,6 +1,6 @@
 import React from "react";
 import "./CourseCart.css";
-import LeftBar from "../../Components/LeftBar/Leftbar";
+import LeftBar from "../../Components/Leftbar/leftbar";
 import Button from 'react-bootstrap/Button';
 
 function CourseCart() {

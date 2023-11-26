@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LeftBar from "../../Components/LeftBar/Leftbar"; 
+import LeftBar from "../../Components/Leftbar/leftbar"; 
 import "./ChangePassword.css";
 
 const Setting = () => {
