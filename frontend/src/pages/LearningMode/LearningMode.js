@@ -9,13 +9,13 @@ const LearningMode = () => {
   console.log("Video ID:", videoID);
 
   return (
-    <div className="dashboard-profile-settings">
-      <div className="dashboard-profile-settings-child">
+    <div className="dashboard-profile-settings1">
+      <div className="dashboard-profile-settings-child1">
         {/* Embed YouTube video */}
-        <div className="title">
-          <p>{decodeURIComponent(title)}</p>
+        <div className="title1">
+          <p className="text1">{decodeURIComponent(title)}</p>
         </div>
-        <div className="youtube">
+        <div className="youtube1">
           <iframe 
             title="YouTube Video"
             width="1280"

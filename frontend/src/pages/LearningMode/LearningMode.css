@@ -47,7 +47,7 @@ body {
   --br-11xl: 30px;
 }
 
-.dashboard-profile-settings {
+.dashboard-profile-settings1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,18 +55,24 @@ body {
   font-family: 'Poppins', sans-serif; 
   background-color: #0E1620;
 }
-.dashboard-profile-settings-child {
+.dashboard-profile-settings-child1 {
   border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
   height: 100vh;
 }
 
-.title {
+.title1 {
   margin-top: 0%;
   font-size: 60px;
   margin-left: -40%;
 }
 
-.youtube {
+.text1 {
+  margin-left: 36%;
+  color: #fff;
+  font-weight: 700;
+}
+
+.youtube1 {
   margin-top: 5%;
   margin-left: 10%;
 }
