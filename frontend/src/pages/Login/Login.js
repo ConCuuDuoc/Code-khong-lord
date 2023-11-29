@@ -78,7 +78,7 @@ const Login = ({ login, isAuthenticated }) => {
                                     <div className="credentials">
                                         <form onSubmit={e=>onSubmit(e)}>
                                             <div className="form-group username">
-                                                <input type="username" className="form-control" placeholder="username" name="username" value={username} onChange={e=>onChange(e)} required/>
+                                                <input type="username" className="form-control" placeholder="Username" name="username" value={username} onChange={e=>onChange(e)} required/>
                                             </div>
                                             <div className="form-group passwd">
                                                 <input type="password" className="form-control" placeholder="Password" name="password" value={password} onChange={e=>onChange(e)} minlength="6" required/>

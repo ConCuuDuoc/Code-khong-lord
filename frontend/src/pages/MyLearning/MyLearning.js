@@ -3,9 +3,18 @@ import "./MyLearning.css";
 import meta from "./images/meta.svg"
 import LeftBar from "../../Components/Leftbar/leftbar";
 import Header from "../../Components/Header/header";
+import { useNavigate } from "react-router-dom";
 
-const CourseCard = ({ title, lessons, category, skills, progress, source }) => {
+
+
+const CourseCard = ({ title, lessons, category, skills, progress, source, videoID }) => {
   const progressBarWidth = `${parseFloat(progress) * 12}px`; 
+
+  const navigate = useNavigate(); 
+
+  const continueto = () => {
+    navigate(`/learningmode/${videoID}/${encodeURIComponent(title)}`);
+  };
 
   return (
     <div className="course-card">
@@ -30,7 +39,7 @@ const CourseCard = ({ title, lessons, category, skills, progress, source }) => {
         <span className="skills-label">Skills you'll gain:</span>
         <span>{skills}</span>
       </div>
-      <button className="course-button">Continue</button>
+      <button className="course-button" onClick={continueto}>Continue</button>
     </div>
   );
 };
@@ -40,22 +49,23 @@ const MyLearning = () => {
     <div className="dashboard-my-learning">
       <div className="all-courses">All courses</div>
       <CourseCard
-        title="Introduction to Front-End Development"
+        title="Introduction to FE Development"
         lessons="25x"
         category="Front-end"
         skills="HTML and CSS, Web Development"
         progress="50%"
         source={meta}
-
+        videoID='x8INk17lYgs'
       />
 
       <CourseCard
-        title="Introduction to Back-End Development"
+        title="Introduction to BE Development"
         lessons="30x"
         category="Back-end"
         skills="Python, Django Web Development"
         progress="100%"
         source={meta}
+        videoID='X3zptTiGddY'
       />
     </div>
   );

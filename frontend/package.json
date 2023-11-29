@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "rm -rf ./build && react-scripts --openssl-legacy-provider build && cp -r build ./build",
+    "build": "rm -rf ../login_service/build && react-scripts --openssl-legacy-provider build && cp -r build ../login_service/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

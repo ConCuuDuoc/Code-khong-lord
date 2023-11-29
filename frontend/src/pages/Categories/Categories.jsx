@@ -22,7 +22,7 @@ const courseData = [
       currentCourseName: "Introduction to Front-End",
       currentCourseSkills: "Web Development, HTML and CSS",
       videoID: "x8INk17lYgs",
-      title: "Test youtube api"
+      title: "Video học tập api 1"
   },
   {
       currentId: 2,
@@ -31,7 +31,7 @@ const courseData = [
       currentCourseName: "Introduction to Django",
       currentCourseSkills: "Web Development, Django, Python",
       videoID: "zL8w9CytHCs",
-      title: "Test youtube api 2"
+      title: "Video học tập 2"
   },
   {
       currentId: 3,
@@ -40,7 +40,7 @@ const courseData = [
       currentCourseName: "Become a Data Analyst",
       currentCourseSkills: "Bi Tools, Python, SQL, Data Visualization",
       videoID: "X3zptTiGddY",
-      title: "Test youtube api 3"
+      title: "Video youtube api 3"
   },
   {
       currentId: 4,
@@ -49,7 +49,7 @@ const courseData = [
       currentCourseName: "Introduction to Machine Learning",
       currentCourseSkills: "Machine Learning",
       videoID: "zL8w9CytHCs",
-      title: "Test youtube api 2"
+      title: "Video học tập 2"
   },
   {
       currentId: 5,
@@ -67,7 +67,7 @@ const courseData = [
       currentCourseName: "Introduction to Networking",
       currentCourseSkills: "Networking",
       videoID: "x8INk17lYgs",
-      title: "Test youtube api"
+      title: "Video học tập api 1"
   },
 ];
 

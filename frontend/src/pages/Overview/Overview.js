@@ -45,17 +45,23 @@ const Overview = () => {
     <div className="overview-of-course">
       <LeftBar /> 
       <div className="resources">Overview</div>
-      <div className="resources2">{`Cyber Security -> Developing Secure Software`}</div>
+      <div className="resources2">
+        {videos.length > 0 && videos[0].snippet.title}
+      </div>
+
       <div className="course-details-software-container">
         <p className="course-details">{`Course details: `}</p>
         <p className="course-details">&nbsp;</p>
         <p className="course-details-1">
-          {videos.map((video) => (
-            <div key={video.id}>
-              <p>{video.snippet.description}</p>
-            </div>
-          ))}
-
+          <p className="course-details-1">
+            {videos
+              .filter((video) => video.snippet.resourceId.videoId === videoID)
+              .map((filteredVideo) => (
+                <div key={filteredVideo.id}>
+                  <p>{filteredVideo.snippet.description}</p>
+                </div>
+              ))}
+          </p>
         </p>
 
         <p className="course-details">Learning objectives:</p>

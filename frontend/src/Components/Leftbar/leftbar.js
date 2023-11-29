@@ -8,11 +8,17 @@ import categories from "./images/Document.svg";
 import cart from "./images/Cart.svg";
 import setting from "./images/Setting.svg";
 import signout from "./images/Logout.svg";
+import { connect } from "react-redux";
+import { logout } from "../../actions/auth"
 
 
 
-function LeftBar () {
-  
+function LeftBar ({ logout }) {
+
+  const logout_user = () => {
+    logout();
+  };
+
   return (
     <div className="box">
       <div className="left-bar">
@@ -59,7 +65,7 @@ function LeftBar () {
 
           <Link to="/coursecart">
           <div className="course-cart">
-            <div className="text-wrapper-lb">Course Cart</div>
+            <div className="text-wrapper-lb">Donate</div>
             <img
               className="iconly-light-outline"
               alt="Iconly light outline"
@@ -87,6 +93,7 @@ function LeftBar () {
               className="iconly-light-outline"
               alt="Iconly light outline"
               src={signout}
+              onClick={logout_user}
             />
           </div>
           </Link> 
@@ -96,4 +103,8 @@ function LeftBar () {
   );
 };
 
-export default LeftBar;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout })(LeftBar);
