@@ -1,4 +1,9 @@
 import axios from 'axios';
+import {
+    LOGOUT,
+}
+from "./types.js";
+
 
 require("dotenv").config();
 
@@ -46,42 +51,32 @@ export const signup = (username, email, password) => async dispatch => {
                 } else {
                     // User is confirmed
                     console.error('Registration failed:', res.data.message);
-                    return false;// Proceed with post-registration logic
+                    return false;
                 }
-            } catch {
-                console.error('Registration failed: Error');
-                // Handle registration failure
+            } catch (error) {
+                console.error('Registration failed:', error);
                 return false;
             }
         
     };
 
 export const logout = () => async dispatch => {
-    try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/logout`);
-        window.location.replace (response.data.url)
-    
-    }
-    catch (error) {
-        console.error('Login with Google failed:', error);
-        // Handle the error appropriately
-    }
+    dispatch({
+        type: LOGOUT
+    });
 };
 
 export const load_user = () => async dispatch => {
    
 }
 export const loginwithGoogle = () => async dispatch => {
-
     try {
-    const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/google`);
-    window.location.replace (response.data.url)
-
-}
-catch (error) {
-    console.error('Login with Google failed:', error);
-    // Handle the error appropriately
-}
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api-auth/google`);
+        window.location.replace (response.data.url)
+    }
+    catch (error) {
+        console.error('Login with Google failed:', error);
+    }
 };
 
 export const login =  (username, password)  => async dispatch => {

@@ -12,7 +12,7 @@ body {
   position: relative;
   background-color: #0e1620;
   width: 100%;
-  height: 1365px;
+  height: 120vh;
   overflow: hidden;
   text-align: left;
   font-size: var(20px);
@@ -21,7 +21,7 @@ body {
 }
 .course-card {
   position: relative;
-  top: 274px;
+  top: 50px;
   left: 372px;
   width: 1200px;
   height: 462px;

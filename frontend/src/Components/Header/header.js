@@ -4,12 +4,45 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from "react-bootstrap/Dropdown";
 import Avatar from "./images/Allura Avatar.svg";
 import Noti from "./images/Notification.svg";
+import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { logout } from "../../actions/auth"
+import { getVideoAPI } from "../../actions/video"
 
-function Header() {
+require('dotenv').config();
+
+function Header({ logout }) {
   const [searchText, setSearchText] = useState("");
+  const [videos, setVideos] = useState([]);
+  
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
+  const handleSearchChange = async (e) => {
+    const query = e.target.value;
+    setSearchText(query);
+
+    if (query) {
+      try{
+        const response = getVideoAPI(query)
+        if (response.data && response.data.videos) {
+          setVideos(response.data.videos);
+        }
+        else {
+          console.error("Error fetching videos from YouTube:", error);
+        }
+      }
+      catch{
+          console.error("Error fetching videos from YouTube:", error);
+
+      }
+    } 
+    else {
+      setVideos([]);
+    }
+  };
+
+  const logout_user = () => {
+    logout();
+    console.log("User logged out");
   };
 
   return (
@@ -57,19 +90,37 @@ function Header() {
             
             <Dropdown.Menu>
               {/* Add your dropdown menu items here */}
-              <Dropdown.Item>Item 1</Dropdown.Item>
-              <Dropdown.Item>Item 2</Dropdown.Item>
-              <Dropdown.Item>Item 3</Dropdown.Item>
+              <Dropdown.Item>Wow</Dropdown.Item>
+              <Dropdown.Item>Không có</Dropdown.Item>
+              <Dropdown.Item>Chức năng</Dropdown.Item>
+              <Dropdown.Item>Gì ở đây cả</Dropdown.Item>
+              <Dropdown.Item onClick={logout_user}>Logout</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-
           </div>
+          
+          {videos.length > 0 && (
+            <div className="search-results">
+              {videos.map((video) => (
+                <Link to={`/learningmode/${video.snippet.resourceId.videoId}/${encodeURIComponent(video.snippet.title)}`} key={video.snippet.resourceId.videoId}>
+                  <div>
+                    <p>{video.snippet.title}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+
 
       </div>
     </div>
   );
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout })(Header);
 
 

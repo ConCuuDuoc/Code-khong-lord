@@ -50,7 +50,7 @@ body {
   .resources2 {
     position: absolute;
     width: 15.99%;
-    top: calc(50% - 510.5px);
+    top: 10%;
     left: 20.31%;
     line-height: 28px;
     font-weight: 500;
@@ -58,7 +58,7 @@ body {
   }
   .resources2 {
     width: 37.71%;
-    top: calc(50% - 421.5px);
+    top: 15%;
     font-size: var(--font-size-11xl);
   }
   .course-details {
@@ -75,7 +75,7 @@ body {
   }
   .course-details-software-container {
     position: absolute;
-    top: 633px;
+    top: 20%;
     left: 377px;
     font-size: var(--font-inherit);
     line-height: 28px;
@@ -217,7 +217,8 @@ body {
     position: relative;
     line-height: 28px;
   }
-   .button-base {
+
+  .button-base {
     all: unset;
     align-items: center;
     background-color: #21b573;
@@ -232,7 +233,7 @@ body {
     overflow: hidden;
     padding: 16px 28px;
     position: absolute;
-    top: 180px;
+    top: 8%;
     width: 153px;
   } 
 
@@ -240,6 +241,7 @@ body {
     font-size: 28px;
     font-family: Inner;
     font-weight: bold;
+    color:#fff
   }
  
   .overview-of-course {

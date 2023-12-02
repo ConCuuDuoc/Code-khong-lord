@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-611t74+3whsg(&a$ig5rq(^$#*zbj7@p%(u6o=l_l-u5h6w29)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'login_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,7 +124,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -140,10 +144,18 @@ COGNITO_CLIENT = boto3.client(
     aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY")  # Replace with your AWS secret key
 )
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000', 'http://localhost:8000', "http://cloudkiddie.net", "https://cloudkiddie.net"
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000', 'http://localhost:8000', "http://cloudkiddie.net", "https://cloudkiddie.net"
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 AUTHENTICATION_BACKENDS = (
-
+    
     'social_core.backends.amazon.AmazonOAuth2',
 
 )

@@ -27,5 +27,5 @@ yarn-error.log*
 /.vscode
 
 #venv
-
+/youtubeapi/venv
 /login_service/venv

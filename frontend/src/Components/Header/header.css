@@ -153,5 +153,33 @@
     border-color: #141414;
   }
  
+  .search-results {
+    position: absolute;
+    top: 80px; 
+    left: 370px;
+    width: 866px; 
+    max-height: 300px; 
+    overflow-y: auto; 
+    background-color: #fff; 
+    border: 2px solid #d6d4d4;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 10px;
+  }
+  
+  .search-results p {
+    margin: 0;
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-results p:hover {
+    background-color: #f0f0f0;
+  }
   
    

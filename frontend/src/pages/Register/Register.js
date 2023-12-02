@@ -85,7 +85,7 @@ const Register = ({ signup, isAuthenticated }) => {
                                         </div>
                                     <div className="credentials">
                                         <form onSubmit={e=>onSubmit(e)}>
-                                            <div className="form-group name">
+                                            <div className="form-group username">
                                                 <input type="name" className="form-control" placeholder="Kimi no nawa?" name="name" value={name} onChange={e=>onChange(e)} required/>
                                             </div>
                                             <div className="form-group emailres">

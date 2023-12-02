@@ -54,8 +54,8 @@ export default function(state= initialState, action){
         case LOGIN_FAIL:
         case SIGNUP_FAIL:
         case LOGOUT:
-            localStorage.removeItem('access',payload.access);
-            localStorage.removeItem('refresh',payload.refresh);
+            localStorage.removeItem('access');
+            localStorage.removeItem('refresh');
             return {
                 ...state,
                 access: null,

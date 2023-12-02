@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import meta from './images/meta.svg';
 import "./CourseItem.css";
+import { useNavigate } from 'react-router-dom';
+
 
 const CourseItem = ({
   currentId,
@@ -12,8 +14,15 @@ const CourseItem = ({
   currentSkill,
   currentCourseName,
   currentCourseSkills,
-  addToCart
+  addToCart,
+  videoID,
+  title,
 }) => {
+  const navigate = useNavigate(); 
+
+  const handleEnrollClick = () => {
+    navigate(`/overview/${videoID}/${encodeURIComponent(title)}`);
+};
 
   return (
     <Card className="careers-card">
@@ -44,7 +53,7 @@ const CourseItem = ({
         <Row className="careers-card-footer">
           <hr />
           <Col md={5}>
-            <Button variant="primary" className="button-buy" onClick={addToCart}>
+            <Button variant="primary" className="button-buy" onClick={handleEnrollClick}>
               Enroll
             </Button>
           </Col>
