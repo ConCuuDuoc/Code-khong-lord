@@ -1,0 +1,12 @@
+{% extends "base_layout.html" %}
+{% block content %}
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{{ title }}</div>
+        <div class="table-responsive">
+            <ul class="list-group">
+                <i class="list-group-item"><a href="{% url "payment" %}">Demo Thanh toán</a></i>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
