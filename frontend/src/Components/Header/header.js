@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from "react-bootstrap/Dropdown";
 import Avatar from "./images/Allura Avatar.svg";
 import Noti from "./images/Notification.svg";
-import axios from "axios";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth"
+import { getVideoAPI } from "../../actions/video"
 
 require('dotenv').config();
 
@@ -19,24 +19,23 @@ function Header({ logout }) {
   const handleSearchChange = async (e) => {
     const query = e.target.value;
     setSearchText(query);
+
     if (query) {
-      try {
-        // Perform a search query
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/search/`,
-          {
-            params: {
-              query: query,
-            },
-          }
-        );
+      try{
+        const response = getVideoAPI(query)
         if (response.data && response.data.videos) {
           setVideos(response.data.videos);
         }
-      } catch (error) {
-        console.error("Error fetching videos from YouTube:", error);
+        else {
+          console.error("Error fetching videos from YouTube:", error);
+        }
       }
-    } else {
+      catch{
+          console.error("Error fetching videos from YouTube:", error);
+
+      }
+    } 
+    else {
       setVideos([]);
     }
   };

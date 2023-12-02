@@ -16,20 +16,25 @@ const Overview = () => {
       if (videoID) {
         try {
           setLoading(true);
-          const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/search/`,
-            {
-              params: {
-                query: videoID,
-              },
+          
+          if (videoID) {
+            try{
+              const response = getVideoAPI(videoID)
+              if (response.data && response.data.videos) {
+                setVideos(response.data.videos);
+              }
+              else {
+                console.error("Error fetching videos from YouTube:", error);
+              }
             }
-          );
-          if (response.data && response.data.videos) {
-            setVideos(response.data.videos);
+            catch{
+              console.error("Error fetching videos from YouTube:", error);
+              setError("Error fetching videos. Please try again later.");
+            }
+          } 
+          else {
+            setVideos([]);
           }
-        } catch (error) {
-          console.error("Error fetching videos from YouTube:", error);
-          setError("Error fetching videos. Please try again later.");
         } finally {
           setLoading(false);
         }

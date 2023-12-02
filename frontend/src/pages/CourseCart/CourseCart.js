@@ -12,7 +12,7 @@ function CourseCart() {
       <LeftBar />
         <div id="outer_container">
           <div id="container">
-            <Image src={qr} />
+            <Image src='https://api.vietqr.io/image/970418-1880276313-wth3jnC.jpg?accountName=TRAN%20THI%20MY%20HUYEN&amount=10000&addInfo=Order%20Courses' />
               <h3 className="firstline">Improve your skills by learning</h3>
               <p className="secondline">Scan the QR code to donate for team: Few, then five eggs - Many, then one To bun bo </p>
           </div>
