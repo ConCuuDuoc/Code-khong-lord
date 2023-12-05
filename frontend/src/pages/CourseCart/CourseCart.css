@@ -2,30 +2,132 @@
   position: relative;
   background-color: #0e1620;
   width: 100%;
-  height: 100vh;
+  height: 1365px;
   overflow: hidden;
   text-align: left;
   font-size: var(--font-size-xl);
   color: var(--color-white);
-  font-family: var(--font-poppins);
   margin-top: -10px;
 }
 
-#outer_container {
-  margin-left: 45%;
-  margin-top: 10%;
+.cart-header h1 {
+  margin-left: 400px;
+  margin-top: 150px;
+  font-family: var(--font-koho);
+  font-weight: bold;
+  font-size: var(--font-size-31xl);
 }
 
-.firstline {
-  margin-left: -7%;
-  font-size: 40px;
+.cart-content {
+  padding: 20px;
 }
 
-.secondline {
-  margin-left: -17%;
+.cart-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
+.cart-item .card {
+  background-color: transparent;
+}
 
+.cart-item-content .card-body {
+  background-color: var(--color-darkslategray-200);
+  color: var(--color-white);
+  border-radius: 20px;
+  border: 1px solid var(--color-lavender-300);
+}
 
+.cart-item-content .card-title {
+  font-family: var(--font-koho);
+  font-weight: bold;
+  font-size: var(--font-size-11xl);
+  color: var(--color-white);
+}
 
+.cart-item-content .card-subtitle {
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+}
 
+.cart-item-content .card-text {
+  font-family: var(--font-poppins);
+  font-size: var(--font-size-3xl);
+  color: white;
+}
+
+.cart-body {
+  margin-left: 400px;
+}
+
+.cart-footer {
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-footer .button-checkout {
+  color: white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  height: 60px;
+  border-radius: var(--br-28xl);
+  background-color: var(--color-mediumseagreen-100);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-inter);
+  font-weight: bold;
+}
+
+.cart-footer .button-checkout:hover {
+  background-color: #218838;
+}
+
+.close-button {
+  position: fixed;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  border-radius: var(--br-28xl);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-inter);
+  margin-left: 82.5%;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
+.cart-footer p {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-11xl);
+}
+
+.close-button:hover {
+  background-color: transparent;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img img {
+  width: 50px;
+}

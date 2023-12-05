@@ -3,7 +3,7 @@ import "./header.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dropdown from "react-bootstrap/Dropdown";
 import Avatar from "./images/Allura Avatar.svg";
-import Noti from "./images/Notification.svg";
+import Cart from "./images/Cart.svg";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth"
@@ -11,7 +11,7 @@ import { getVideoAPI } from "../../actions/video"
 
 require('dotenv').config();
 
-function Header({ logout }) {
+function Header({ numItems, setShowCart, logout }) {
   const [searchText, setSearchText] = useState("");
   const [videos, setVideos] = useState([]);
   
@@ -40,6 +40,10 @@ function Header({ logout }) {
     }
   };
 
+  const onShowCartHandler = () => {
+    setShowCart(true);
+  };
+
   const logout_user = () => {
     logout();
     console.log("User logged out");
@@ -62,13 +66,18 @@ function Header({ logout }) {
         </div>
         
         <div className="user">
-            <div className="notification">
+            <div className="notification" onClick={onShowCartHandler}>
               <div className="overlap-group">
                 <img
                   className="iconly-light-outline-2"
                   alt="Iconly light outline"
-                  src={Noti}
+                  src={Cart}
                 />
+
+                <span className="number">
+                  <sup>{numItems}</sup>
+                </span>
+                
                 <div className="ellipse" />
               </div>
             </div>

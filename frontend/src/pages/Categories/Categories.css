@@ -398,15 +398,13 @@ line-height: normal;
   font-weight: bold;
 }
 
-
 /* Card */
 .careers .careers-card {
   position: absolute;
   top: 60px;
   height: 400px;
   width: 500px;
-  padding: 20px;
-  left: 10px;
+  padding: 25px;
   background-color: var(--color-darkslategray-200);
   color: var(--color-white);
   border-radius: var(--br-28xl);
@@ -419,12 +417,14 @@ line-height: normal;
   font-family: var(--font-inter);
   font-weight: 350;
   align-items: center;
+  margin-left: 30px;
 }
 
 .card-type {
   border-radius: var(--br-xl);
   background-color: transparent;
   color: var(--color-white);
+  margin-left: -30px;
   width: 150px;
   height: 34px;
   border-radius: var(--br-28xl);
@@ -435,6 +435,10 @@ line-height: normal;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
+}
+
+.careers-card-center {
+  margin-left: 10px;
 }
 
 .careers-card-center p {
@@ -461,7 +465,7 @@ line-height: normal;
   margin-left: 1rem;
 }
 
-.button-join {
+.button-enroll{
   position: absolute;
   width: 150px;
   height: 60px;
@@ -481,3 +485,22 @@ line-height: normal;
   color: var(--color-white);
 }
 
+.button-buy{
+  margin-left: -10px;;
+  width: 150px;
+  height: 60px;
+  border-radius: var(--br-28xl);
+  background-color: #CFB94A;
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-base) var(--padding-9xl);
+  box-sizing: border-box;
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-inter);
+  font-weight: bold;
+  color: var(--color-white);
+}
