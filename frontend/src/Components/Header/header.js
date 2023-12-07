@@ -7,7 +7,8 @@ import Noti from "./images/Notification.svg";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { logout } from "../../actions/auth"
+import { logout } from "../../actions/auth";
+import { useNavigate } from "react-router-dom";
 
 require('dotenv').config();
 
@@ -15,6 +16,7 @@ function Header({ logout }) {
   const [searchText, setSearchText] = useState("");
   const [videos, setVideos] = useState([]);
   
+  const navigate = useNavigate();
 
   const handleSearchChange = async (e) => {
     const query = e.target.value;
@@ -95,7 +97,10 @@ function Header({ logout }) {
               <Dropdown.Item>Không có</Dropdown.Item>
               <Dropdown.Item>Chức năng</Dropdown.Item>
               <Dropdown.Item>Gì ở đây cả</Dropdown.Item>
-              <Dropdown.Item onClick={logout_user}>Logout</Dropdown.Item>
+              <Link to="/">
+                <Dropdown.Item onClick={logout_user}>Logout</Dropdown.Item>
+              </Link>
+             
             </Dropdown.Menu>
           </Dropdown>
           </div>

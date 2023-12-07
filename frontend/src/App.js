@@ -65,6 +65,7 @@ export function Auth() {
                                   <Route exact path="/confirm/:username" element={<Confirm />} />
                                   <Route exact path="/reset_password" element={<Resetpassword />} />
                                   <Route exact path="/password/reset/confirm/:username" element={<Resetpasswordconfirm />} />
+                                  
                                   {/* ... other public routes ... */}
                               </>
                           
