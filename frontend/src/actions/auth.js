@@ -4,7 +4,6 @@ import {
 }
 from "./types.js";
 
-
 require("dotenv").config();
 
 export const checkAuthenticated = (AccessToken) => async dispatch => {

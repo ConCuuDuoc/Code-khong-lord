@@ -7,11 +7,11 @@ import facebook from "../../pages/Login/images/facebook.svg";
 import google from "../../pages/Login/images/google.svg";
 import github from "../../pages/Login/images/github.svg";
 import line1 from "../../pages/Login/images/line-1.svg";
-import { checkAuthenticated, loginwithGoogle, signup } from "../../actions/auth";
+import { signup } from "../../actions/auth";
 import "./Register.css"
 require('dotenv').config();
 
-const Register = ({ signup, isAuthenticated }) => {
+const Register = ({  isAuthenticated }) => {
     const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -142,4 +142,4 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(mapStateToProps,{ signup }) (Register);
+export default connect(mapStateToProps,{ }) (Register);

@@ -16,10 +16,8 @@ Including another URLconf
 """
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
-from youtubeapi.views import search
 
 urlpatterns = [
     path('api-auth/', include('authentication.urls')),
-    path('search/', search, name='search'),
 ]
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
