@@ -3,7 +3,8 @@ import "./Overview.css";
 import Button from 'react-bootstrap/Button';
 import LeftBar from "../../Components/Leftbar/leftbar"; 
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
+import { getVideoAPI } from "../../actions/video";
+
 
 const Overview = () => {
   const { videoID, title } = useParams();

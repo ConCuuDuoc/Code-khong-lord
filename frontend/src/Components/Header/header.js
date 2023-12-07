@@ -27,10 +27,10 @@ function Header({ numItems, setShowCart, logout }) {
           setVideos(response.data.videos);
         }
         else {
-          console.error("Error fetching videos from YouTube:", error);
+          console.error("Error fetching videos from YouTube:");
         }
       }
-      catch{
+      catch (error){
           console.error("Error fetching videos from YouTube:", error);
 
       }

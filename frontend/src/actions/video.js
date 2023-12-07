@@ -14,7 +14,7 @@ export const getVideoAPI = (query_real) => async dispatch => {
           }
         );
         if (response.data && response.data.videos) {
-          setVideos(response.data.videos);
+          return response
         }
       } catch (error) {
         console.error("Error fetching videos from YouTube:", error);
