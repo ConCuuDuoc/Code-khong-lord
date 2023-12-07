@@ -4,6 +4,8 @@ import LeftBar from "../../Components/Leftbar/leftbar";
 import Button from 'react-bootstrap/Button';
 import { Col, Row, Card } from 'react-bootstrap';
 
+require("dotenv").config();
+
 const CourseCart = ({ cart, setCart, setShowCart }) => {
   console.log("Cart in CourseCart component:", cart);
 
@@ -15,7 +17,7 @@ const CourseCart = ({ cart, setCart, setShowCart }) => {
 
   const onCheckoutHandler = () => {
     // Redirect to the checkout page
-    window.location.href = 'http://localhost:8000';
+    window.location.href = process.env.REACT_APP_APR_URL_PAY;
   };
 
   return (
