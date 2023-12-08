@@ -7,7 +7,11 @@
 ```
 npm install  
 ```
-- Step 4: Run each service using following command
+- Step 4: To run frontend, type
+```
+npm start
+```
+- Step 4: Run each service using following command, the {PORT} field depend on your selected port
 ```
 python3 manage.py runserver {PORT}
 ```
