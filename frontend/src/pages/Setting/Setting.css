@@ -56,10 +56,12 @@ body {
   background-color: #0E1620;
   margin-top: -10px;
 }
+
 .dashboard-profile-settings-child {
   border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
   height: 1365px;
 }
+
 .dashboard-profile-settings form {
   width: 400px; 
 }
@@ -82,6 +84,7 @@ body {
 .dashboard-profile-settings button:last-child {
   margin-right: 0;
 }
+
 .change-setting {
   color: white;
   font-size: 24px;
