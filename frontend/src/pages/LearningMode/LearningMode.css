@@ -57,7 +57,6 @@ body {
 }
 .dashboard-profile-settings-child1 {
   border-radius: 0 var(--br-11xl) var(--br-11xl) 0;
-  height: 100vh;
 }
 
 .title1 {
@@ -76,3 +75,57 @@ body {
   margin-top: 5%;
   margin-left: 10%;
 }
+
+
+* {
+  font-family: "Segoe UI";
+}
+
+#comments {
+  margin-top: 3%;
+  margin-left: 8%;
+}
+
+.comment-temp {
+  display:flex;
+  padding:8px 16px;
+}
+.comment-temp .photo img {
+  border-radius:50%;
+}
+.comment-temp .name {
+  flex:1;
+  padding-left:12px
+}
+.comment-temp h5 {
+  font-weight:500;
+  margin:0;
+  font-size:16px;
+  color:#fff
+}
+.comment-temp p {
+  margin:4px 0 0 0;
+  font-size:14px;
+  color: #fff;
+}
+
+.like-count {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+
+.like-count .image {
+  margin-right: 8px;
+  width: 30px;
+  height: 40px;
+}
+
+.like-count .like {
+  margin-top: 15px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+

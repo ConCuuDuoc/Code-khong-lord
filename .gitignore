@@ -29,3 +29,4 @@ yarn-error.log*
 #venv
 /youtubeapi/venv
 /login_service/venv
+/payment/venv

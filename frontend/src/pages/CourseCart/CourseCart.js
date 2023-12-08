@@ -17,7 +17,7 @@ const CourseCart = ({ cart, setCart, setShowCart }) => {
 
   const onCheckoutHandler = () => {
     // Redirect to the checkout page
-    window.location.href = "http://localhost:8000"
+    window.location.href = "http://localhost:8000/payment"
   };
 
   return (

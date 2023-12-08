@@ -2,7 +2,7 @@ import axios from 'axios';
 
 require("dotenv").config();
 
-export const getVideoAPI = (query_real) => async dispatch => {
+export const getVideoAPI = async (query_real) => { 
     try {
         // Perform a search query
         const response = await axios.get(

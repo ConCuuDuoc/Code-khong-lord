@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
-
+from videoApi.views import GetVideoApi
 urlpatterns = [
     path('api-video/', include('videoApi.urls')),
+    path('search/', GetVideoApi, name='search'),
 ]
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

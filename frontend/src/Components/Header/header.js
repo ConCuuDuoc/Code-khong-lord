@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth"
 import { getVideoAPI } from "../../actions/video"
+import axios from 'axios';
 
 require('dotenv').config();
 
@@ -19,23 +20,27 @@ function Header({ numItems, setShowCart, logout }) {
   const handleSearchChange = async (e) => {
     const query = e.target.value;
     setSearchText(query);
-
     if (query) {
-      try{
-        const response = getVideoAPI(query)
+      try {
+        // Perform a search query
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL_VIDEO}/search/`,
+          {
+            params: {
+              query: query,
+            },
+          }
+        );
         if (response.data && response.data.videos) {
-          setVideos(response.data.videos);
+          const filteredVideos = response.data.videos.filter((video) =>
+          video.snippet.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setVideos(filteredVideos);
         }
-        else {
-          console.error("Error fetching videos from YouTube:");
-        }
+      } catch (error) {
+        console.error("Error fetching videos from YouTube:", error);
       }
-      catch (error){
-          console.error("Error fetching videos from YouTube:", error);
-
-      }
-    } 
-    else {
+    } else {
       setVideos([]);
     }
   };
